@@ -1,0 +1,11 @@
+{
+    "model": "Innova Crysta",
+    "year": 2019,
+    "fuel": "diesel",
+    "rate": {
+      "ac": 19,
+      "non_ac": 18
+    },
+    "per_day_charge": 250
+  }
+  

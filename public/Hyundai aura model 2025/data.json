@@ -1,0 +1,11 @@
+{
+    "model": "Hyundai Aura",
+    "year": 2025,
+    "fuel": "petrol + cng",
+    "rate": {
+      "ac": 12,
+      "non_ac": 11
+    },
+    "per_day_charge": 250
+  }
+  

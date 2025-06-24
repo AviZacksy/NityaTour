@@ -1,0 +1,10 @@
+{
+    "model": "Tavera",
+    "year": 2014,
+    "fuel": "diesel",
+    "rate": {
+      "non_ac": 15
+    },
+    "per_day_charge": 250
+  }
+  

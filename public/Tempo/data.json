@@ -1,0 +1,12 @@
+{
+    "model": "Tempo Traveller",
+    "seating": "17 seater",
+    "year": 2023,
+    "fuel": "diesel",
+    "rate": {
+      "ac": 28,
+      "non_ac": 26
+    },
+    "per_day_charge": 250
+  }
+  

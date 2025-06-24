@@ -1,0 +1,11 @@
+{
+    "model": "Ertiga",
+    "year": 2024,
+    "fuel": "petrol + cng",
+    "rate": {
+      "ac": 14,
+      "non_ac": 13
+    },
+    "per_day_charge": 250
+  }
+  

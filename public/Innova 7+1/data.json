@@ -1,0 +1,12 @@
+{
+    "model": "Innova",
+    "seating": "7+1",
+    "year": 2016,
+    "fuel": "diesel",
+    "rate": {
+      "ac": 16,
+      "non_ac": 15
+    },
+    "per_day_charge": 250
+  }
+  
