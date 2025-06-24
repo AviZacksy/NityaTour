@@ -36,7 +36,7 @@ interface Company {
 
 // Utility to fetch company info
 async function fetchCompanyInfo() {
-  const res = await fetch("/data/.json");
+  const res = await fetch("/data/data.json");
   return res.json();
 }
 
