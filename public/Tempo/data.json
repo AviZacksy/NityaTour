@@ -7,6 +7,16 @@
       "ac": 28,
       "non_ac": 26
     },
-    "per_day_charge": 250
-  }
+    "per_day_charge": 250,
+    "images": [
+      "tempo.png",
+      "WhatsApp Image 2025-06-24 at 14.53.29_b00b9700.jpg",
+      "WhatsApp Image 2025-06-24 at 14.53.30_e7228dc2.jpg",
+      "WhatsApp Image 2025-06-24 at 14.53.30_ecefb8ac.jpg",
+      "WhatsApp Image 2025-06-24 at 14.53.31_040105aa.jpg",
+      "WhatsApp Image 2025-06-24 at 14.53.32_08cfcb37.jpg",
+      "WhatsApp Image 2025-06-24 at 14.53.32_a9ad4ec3.jpg"
+    ],
+    "folder": "Tempo"
+}
   

@@ -1,10 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import HeroSection from "./components/HeroSection";
-import WhyChooseUs from "./components/WhyChooseUs";
 import CarImageSlider from "./components/CarImageSlider";
 import StickyContactButtons from "./components/StickyContactButtons";
-import CarsGrid from "./components/CarsGrid";
+import HotelSection from "./components/HotelSection";
+import Image from 'next/image';
+// import CarsGrid from "./components/CarsGrid";
+// import WhyChooseUs from "./components/WhyChooseUs";
+
+const CarsGrid = lazy(() => import("./components/CarsGrid"));
+const WhyChooseUs = lazy(() => import("./components/WhyChooseUs"));
 
 interface Car {
   images: string[];
@@ -44,7 +49,7 @@ async function fetchCompanyInfo() {
 const carFolders = [
   "Ertiga model 2024",
   "Hyundai aura model 2025",
-  "Innova 7+1",
+  "Innova-7plus1",
   "innova Crysta 2019",
   "Tavera Model 2014",
   "Tempo"
@@ -63,10 +68,11 @@ const carImages: Record<string, string[]> = {
     "WhatsApp Image 2025-06-24 at 15.09.15_33f7d750.jpg",
     "WhatsApp Image 2025-06-24 at 15.09.14_4226d3d3.jpg"
   ],
-  "Innova 7+1": [
+  "Innova-7plus1": [
+    "travel-agents.png",
+    "WhatsApp Image 2025-06-24 at 14.56.13_548bda35.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.14_d3113ba1.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.15_073c41f9.jpg",
-    "WhatsApp Image 2025-06-24 at 14.56.13_548bda35.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.16_47da2324.jpg"
   ],
   "innova Crysta 2019": [
@@ -104,7 +110,12 @@ async function fetchAllCars() {
         return { error: true, folder, images: [] };
       }
       const data = await res.json();
-      return { ...data, folder, images: carImages[folder] || [] };
+      let images = data.images || carImages[folder] || [];
+      if (folder === "innova Crysta 2019") {
+        // Ensure img.jpg is the first image
+        images = ["img.jpg", ...images.filter((img: string) => img !== "img.jpg")];
+      }
+      return { ...data, folder, images };
     })
   );
   return cars;
@@ -126,9 +137,23 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f8fafc] to-[#e0e7ef] text-gray-900 font-sans relative">
+      <Image
+        src="/innova Crysta 2019/img.jpg"
+        alt="Innova Crysta 2019"
+        width={600}
+        height={400}
+        style={{ width: '100%', maxWidth: 600, margin: '0 auto', display: 'block', borderRadius: 12 }}
+        className="mx-auto rounded-xl"
+        priority
+      />
       <HeroSection />
-      {company && <CarsGrid cars={cars} company={company} CarImageSlider={CarImageSlider} />}
-      <WhyChooseUs />
+      <Suspense fallback={<div className="text-center py-10 text-lg">Loading Cars...</div>}>
+        {company && <CarsGrid cars={cars} company={company} CarImageSlider={CarImageSlider} />}
+      </Suspense>
+      <HotelSection />
+      <Suspense fallback={<div className="text-center py-10 text-lg">Loading Features...</div>}>
+        <WhyChooseUs />
+      </Suspense>
       {company && <StickyContactButtons company={company} />}
       {/* All Cars, HowItWorks, Reviews, ContactFooter, StickyContactButtons components yahan import/use karen */}
     </div>

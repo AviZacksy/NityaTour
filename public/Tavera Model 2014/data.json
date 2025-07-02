@@ -5,6 +5,13 @@
     "rate": {
       "non_ac": 15
     },
-    "per_day_charge": 250
-  }
+    "per_day_charge": 250,
+    "images": [
+      "047.png",
+      "WhatsApp Image 2025-06-24 at 15.02.20_03174d4f.jpg",
+      "WhatsApp Image 2025-06-24 at 15.02.21_d3cd18fe.jpg",
+      "WhatsApp Image 2025-06-24 at 15.02.24_c4158462.jpg"
+    ],
+    "folder": "Tavera Model 2014"
+}
   

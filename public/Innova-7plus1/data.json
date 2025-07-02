@@ -1,0 +1,19 @@
+{
+    "model": "Innova",
+    "seating": "7+1",
+    "year": 2016,
+    "fuel": "diesel",
+    "rate": {
+      "ac": 16,
+      "non_ac": 15
+    },
+    "per_day_charge": 250,
+    "images": [
+      "travel-agents.png",
+      "WhatsApp Image 2025-06-24 at 14.56.13_548bda35.jpg",
+      "WhatsApp Image 2025-06-24 at 14.56.14_d3113ba1.jpg",
+      "WhatsApp Image 2025-06-24 at 14.56.15_073c41f9.jpg",
+      "WhatsApp Image 2025-06-24 at 14.56.16_47da2324.jpg"
+    ]
+}
+  
