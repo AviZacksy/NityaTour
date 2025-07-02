@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nitya Tour - Indore Cab Service & Tour Travels",
     description: "Best cab service in Indore. Book cabs, cars, and hotels with Nitya Tour Travels. Affordable, reliable, and trusted travel partner in Indore.",
-    url: "https://nityatour.com",
+    url: "https://nityatour.in",
     siteName: "Nitya Tour",
     images: [
       {
