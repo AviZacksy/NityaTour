@@ -133,10 +133,6 @@ export default function WhyChooseUs() {
                     <FaCheckCircle className="text-green-500 text-xl" />
                     <span className="font-semibold text-gray-700">In any case the jurisdiction will be Indore.</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <FaCheckCircle className="text-green-500 text-xl" />
-                    <span className="font-semibold text-gray-700">Insurance Claim (insurance charges will be extra)</span>
-                  </div>
                 </div>
               </div>
             </RevealOnScroll>
