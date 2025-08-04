@@ -21,7 +21,7 @@ export default function Navbar() {
   const [showContact, setShowContact] = useState(false);
 
   // Custom handler for anchor links
-  const handleNavClick = (e, href, contact) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, contact?: boolean) => {
     if (contact) {
       e.preventDefault();
       setShowContact(true);

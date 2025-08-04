@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import SectionHeading from "./SectionHeading";
-import { FaWhatsapp, FaCarSide, FaCalendarAlt, FaGasPump } from "react-icons/fa";
+import { FaWhatsapp, FaCalendarAlt, FaGasPump } from "react-icons/fa";
 
 interface Company {
   company_name: string;
