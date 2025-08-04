@@ -58,7 +58,7 @@ export default function CarsGrid({ cars, company, CarImageSlider }: CarsGridProp
               <div className="flex-1 flex flex-col p-6">
                 <h4 className="text-2xl font-extrabold text-indigo-900 mb-2 group-hover:text-yellow-600 transition">{car.model}</h4>
                 <div className="flex items-center gap-4 text-gray-600 text-base mb-3">
-                  <span className="flex items-center gap-2"><FaUserFriends className="text-indigo-400" /> {car.seating || "-"} Seats</span>
+                  <span className="flex items-center gap-2"><FaUserFriends className="text-indigo-400" /> {car.seating ? `${car.seating}+1` : "-"} Seats</span>
                   <span className="flex items-center gap-2"><FaGasPump className="text-yellow-500" /> {car.fuel}</span>
                   {car.rate?.ac && <span className="flex items-center gap-2"><FaSnowflake className="text-blue-400" /> AC</span>}
                 </div>
@@ -66,7 +66,7 @@ export default function CarsGrid({ cars, company, CarImageSlider }: CarsGridProp
                   {car.rate?.ac && <span className="flex items-center gap-1"><FaRupeeSign />AC: {car.rate.ac}/km</span>}
                   {car.rate?.non_ac && <span className="flex items-center gap-1"><FaRupeeSign />Non-AC: {car.rate.non_ac}/km</span>}
                 </div>
-                <span className="text-sm text-gray-500 mb-4">Per day charge: <span className="font-semibold text-indigo-700">₹{car.per_day_charge}</span></span>
+                <span className="text-sm text-gray-500 mb-4">Per day charge: <span className="font-semibold text-indigo-700">₹{car.per_day_charge} (250 KM)</span></span>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="flex items-center gap-2 text-green-600 text-sm"><FaCheckCircle /> Clean & Sanitized</span>
                   <span className="flex items-center gap-2 text-green-600 text-sm"><FaCheckCircle /> Verified Driver</span>

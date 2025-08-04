@@ -22,7 +22,7 @@ const HotelSection: React.FC = () => {
   return (
     <section id="hotel-nitya" className="max-w-7xl mx-auto px-4 mb-20">
       <RevealOnScroll>
-        <SectionHeading>Hotel Nitya</SectionHeading>
+        <SectionHeading>Our Hotel Facilities</SectionHeading>
         <div className="flex justify-center mt-6">
           <button
             className={`px-8 py-3 rounded-full font-bold text-lg shadow transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-yellow-300 ${showImages ? 'bg-yellow-600 text-white hover:bg-yellow-700' : 'bg-white text-yellow-700 border border-yellow-400 hover:bg-yellow-100'}`}
@@ -44,8 +44,8 @@ const HotelSection: React.FC = () => {
                     width={400}
                     height={288}
                     className="object-cover w-full h-full rounded-t-3xl"
-                    loading="lazy"
-                    priority={idx === 0}
+                    // Only use 'priority' for the first image, otherwise use 'loading="lazy"'
+                    {...(idx === 0 ? { priority: true } : { loading: "lazy" })}
                   />
                 </div>
               </div>
@@ -57,4 +57,4 @@ const HotelSection: React.FC = () => {
   );
 };
 
-export default HotelSection; 
+export default HotelSection;

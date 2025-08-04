@@ -123,19 +123,19 @@ export default function WhyChooseUs() {
                   </div>
                   <div className="flex items-center gap-3">
                     <FaCheckCircle className="text-green-500 text-xl" />
-                    <span className="font-semibold text-gray-700">No cancellation charges</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <FaCheckCircle className="text-green-500 text-xl" />
                     <span className="font-semibold text-gray-700">GPS tracking</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FaCheckCircle className="text-green-500 text-xl" />
-                    <span className="font-semibold text-gray-700">Insurance coverage</span>
+                    <span className="font-semibold text-gray-700">T&C Apply</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FaCheckCircle className="text-green-500 text-xl" />
-                    <span className="font-semibold text-gray-700">Multiple payment options</span>
+                    <span className="font-semibold text-gray-700">In any case the jurisdiction will be Indore.</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <FaCheckCircle className="text-green-500 text-xl" />
+                    <span className="font-semibold text-gray-700">Insurance Claim (insurance charges will be extra)</span>
                   </div>
                 </div>
               </div>
@@ -178,10 +178,6 @@ export default function WhyChooseUs() {
                   </div>
                   <div className="flex items-center gap-3">
                     <FaStar className="text-indigo-900 text-xl" />
-                    <span className="font-semibold text-indigo-900">All vehicles are insured</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <FaStar className="text-indigo-900 text-xl" />
                     <span className="font-semibold text-indigo-900">Background verified drivers</span>
                   </div>
                   <div className="flex items-center gap-3">
@@ -196,4 +192,4 @@ export default function WhyChooseUs() {
       </div>
     </section>
   );
-} 
+}

@@ -7,8 +7,9 @@ const navLinks = [
   { label: "Home", href: "#" },
   { label: "Our Cars", href: "#our-cars" },
   { label: "All Cars Gallery", href: "/all-cars" },
-  { label: "Hotel Nitya", href: "#hotel-nitya" },
+  { label: "Our Hotel Facilities", href: "#hotel-nitya" },
   { label: "Why Choose Us", href: "#why-choose-us" },
+  { label: "Foren Trip", href: "/foren-trip" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -120,4 +121,4 @@ const MobileMenu: React.FC = () => {
   );
 };
 
-export default MobileMenu; 
+export default MobileMenu;
