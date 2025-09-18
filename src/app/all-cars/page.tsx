@@ -79,7 +79,7 @@ export default function AllCarsGallery() {
         </button>
       </div>
       <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-indigo-600 via-yellow-500 to-indigo-600 bg-clip-text text-transparent flex items-center justify-center gap-3">
-        <FaCarSide className="text-yellow-500 drop-shadow" /> All Cars Gallery
+        <FaCarSide className="text-yellow-500 drop-shadow" /> Rent Cars in Indore - All Cars Gallery
       </h1>
       {carFolders.map((folder) => (
         <section key={folder} id={folder} className="mb-16">

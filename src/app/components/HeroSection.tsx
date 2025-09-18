@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { FaShieldAlt, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope, FaInstagram, FaStar } from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
+import Image from "next/image";
 
 interface Company {
   company_name: string;
@@ -27,12 +28,20 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-br from-indigo-50 via-blue-50 to-yellow-50 py-20">
+    <section className="relative w-full min-h-screen bg-white py-20">
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Hero Content */}
         <RevealOnScroll>
-          <div className="text-center mb-16">
-            <span className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-600 text-indigo-900 font-bold px-6 py-2 rounded-full mb-6 shadow-lg animate-bounce">
+          <div className="text-center mb-16 -mt-35">
+            <div className="flex justify-center mb2">
+              <img
+                src="/logo/logo.png"
+                alt="Nitya Tour & Travels Logo"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-600 text-indigo-900 font-bold px-6 py-2 rounded-full mb-4 shadow-lg animate-bounce">
               <FaStar className="inline mr-2" />
           Trusted by 10,000+ Customers
         </span>
@@ -40,10 +49,10 @@ export default function HeroSection() {
               {company?.company_name || "Nitya Tour & Travels"}
         </h1>
             <p className="text-xl md:text-2xl text-gray-700 mb-4 animate-fade-in-up delay-100">
-              Premium Car Rental Services
+              Best Travel Agency in Indore - Premium Car Rental Services
             </p>
             <p className="text-lg text-gray-600 mb-8 animate-fade-in-up delay-200">
-              Experience luxury and comfort with our well-maintained fleet
+              Tour planners in Indore offering rent cars, taxi service, and tour package planner. Your trusted travel agency near me.
             </p>
           </div>
         </RevealOnScroll>
@@ -55,7 +64,7 @@ export default function HeroSection() {
             <div className="space-y-8">
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-indigo-100">
                 <h3 className="text-3xl font-bold text-indigo-900 mb-6">
-                  About Our Company
+                  Best Travels in Indore - About Our Company
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-gray-700">
@@ -68,7 +77,7 @@ export default function HeroSection() {
                   </div>
                   <div className="flex items-center gap-3 text-gray-700">
                     <FaClock className="text-yellow-500 text-xl" />
-                    <span className="font-semibold">24/7 Service Available</span>
+                    <span className="font-semibold">24/7 Rent Car Service Indore Available</span>
                   </div>
                 </div>
               </div>
@@ -109,11 +118,11 @@ export default function HeroSection() {
           <RevealOnScroll>
             <div className="space-y-8">
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-indigo-100">
-                <h4 className="text-2xl font-bold text-indigo-900 mb-6">Our Mission</h4>
+                <h4 className="text-2xl font-bold text-indigo-900 mb-6">Our Mission - Tour Package Planner</h4>
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  To provide exceptional car rental services with the highest standards of safety, 
+                  As the best travels in Indore, we provide exceptional car rental services and tour package planner with the highest standards of safety, 
                   comfort, and reliability. We strive to make every journey memorable by offering 
-                  well-maintained vehicles and professional service to our valued customers.
+                  well-maintained vehicles and professional service to our valued customers. Your trusted tour and travels near me.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white p-4 rounded-2xl">
@@ -121,15 +130,15 @@ export default function HeroSection() {
                     <p className="text-sm opacity-90">All vehicles undergo regular safety checks</p>
                   </div>
                   <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-indigo-900 p-4 rounded-2xl">
-                    <h5 className="font-bold mb-2">Best Rates</h5>
+                    <h5 className="font-bold mb-2">Best Cab Service Indore</h5>
                     <p className="text-sm opacity-90">Competitive pricing with no hidden charges</p>
                   </div>
                   <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-2xl">
-                    <h5 className="font-bold mb-2">24/7 Support</h5>
+                    <h5 className="font-bold mb-2">Taxi Service Indore</h5>
                     <p className="text-sm opacity-90">Round the clock customer assistance</p>
                   </div>
                   <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-4 rounded-2xl">
-                    <h5 className="font-bold mb-2">Wide Selection</h5>
+                    <h5 className="font-bold mb-2">Rent Cabs Near Me</h5>
                     <p className="text-sm opacity-90">Diverse fleet to meet all your needs</p>
                   </div>
                 </div>
@@ -145,7 +154,7 @@ export default function HeroSection() {
           href="#our-cars"
               className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-600 text-indigo-900 font-bold px-12 py-6 rounded-full shadow-xl text-xl md:text-2xl hover:scale-105 hover:from-yellow-500 hover:to-yellow-700 transition-all duration-300 animate-pulse"
         >
-              Book Your Ride Now
+              Rent Cars in Indore - Book Your Ride Now
         </a>
       </div>
         </RevealOnScroll>

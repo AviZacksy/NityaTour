@@ -15,7 +15,7 @@ export default function WhyChooseUs() {
     <section id="why-choose-us" className="relative w-full py-20 bg-gradient-to-br from-indigo-50 via-blue-50 to-yellow-50">
       <div className="max-w-7xl mx-auto px-4">
         <RevealOnScroll>
-          <SectionHeading>Why Choose Us?</SectionHeading>
+          <SectionHeading>Why Choose Our Travel Agency Near Me?</SectionHeading>
         </RevealOnScroll>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -24,7 +24,7 @@ export default function WhyChooseUs() {
             <RevealOnScroll>
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-indigo-100">
                 <h3 className="text-3xl font-bold text-indigo-900 mb-6">
-                  Our Core Strengths
+                  Best Travels in Indore - Our Core Strengths
                 </h3>
                 
                 <div className="space-y-6">
@@ -139,24 +139,24 @@ export default function WhyChooseUs() {
 
             {/* Service Highlights */}
             <RevealOnScroll>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-indigo-900 p-6 rounded-2xl">
-                  <h5 className="font-bold mb-2">City Tours</h5>
+                  <h5 className="font-bold mb-2">Tour Planners in Indore</h5>
                   <p className="text-sm opacity-90">Local sightseeing and city exploration</p>
                 </div>
                 
                 <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white p-6 rounded-2xl">
-                  <h5 className="font-bold mb-2">Outstation</h5>
+                  <h5 className="font-bold mb-2">Travelling Package</h5>
                   <p className="text-sm opacity-90">Long distance and interstate travel</p>
                 </div>
                 
                 <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-2xl">
-                  <h5 className="font-bold mb-2">Airport Transfer</h5>
+                  <h5 className="font-bold mb-2">Taxi Service Indore</h5>
                   <p className="text-sm opacity-90">Reliable airport pickup and drop</p>
                 </div>
                 
                 <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-2xl">
-                  <h5 className="font-bold mb-2">Corporate</h5>
+                  <h5 className="font-bold mb-2">Rent Cabs Near Me</h5>
                   <p className="text-sm opacity-90">Business travel and corporate events</p>
                 </div>
               </div>

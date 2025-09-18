@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -33,9 +34,17 @@ const MobileMenu: React.FC = () => {
         >
           <FaBars className="text-2xl text-indigo-900" />
         </button>
-        <span className="flex-1 text-center text-lg font-bold text-indigo-900 tracking-wide select-none">
-          Nitya Tour & Travels
-        </span>
+        <div className="flex-1 flex items-center justify-center gap-2">
+          <img
+            src="/logo/logo.png"
+            alt="Nitya Tour & Travels Logo"
+            width={50}
+            height={50}
+          />
+          <span className="text-lg font-bold text-indigo-900 tracking-wide select-none">
+            Nitya Tour & Travels
+          </span>
+        </div>
         {/* Empty space to balance the flex layout */}
         <span className="w-10" />
       </div>
@@ -95,6 +104,13 @@ const MobileMenu: React.FC = () => {
       {showContact && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
           <div className="bg-white rounded-2xl shadow-2xl p-8 flex flex-col items-center gap-6 min-w-[260px]">
+            <Image
+              src="/logo/logo.png"
+              alt="Nitya Tour & Travels Logo"
+              width={60}
+              height={60}
+              className="rounded-lg shadow-sm"
+            />
             <h3 className="text-xl font-bold text-indigo-900 mb-2">Contact Us</h3>
             <button
               className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-indigo-900 px-6 py-3 rounded-full font-bold shadow hover:scale-105 transition-all text-base"

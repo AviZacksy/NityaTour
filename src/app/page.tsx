@@ -136,16 +136,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f8fafc] to-[#e0e7ef] text-gray-900 font-sans relative">
-      <Image
-        src="/innova Crysta 2019/img.jpg"
-        alt="Innova Crysta 2019"
-        width={600}
-        height={400}
-        style={{ width: '100%', maxWidth: 600, margin: '0 auto', display: 'block', borderRadius: 12 }}
-        className="mx-auto rounded-xl"
-        priority
-      />
+    <div className="min-h-screen text-gray-900 font-sans relative">
       <HeroSection />
       <Suspense fallback={<div className="text-center py-10 text-lg">Loading Cars...</div>}>
         {company && <CarsGrid cars={cars} company={company} CarImageSlider={CarImageSlider} />}

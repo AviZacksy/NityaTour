@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { FaCarSide } from "react-icons/fa";
 import { useState } from "react";
 import ContactModal from "./ContactModal";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -48,10 +49,15 @@ export default function Navbar() {
       <nav className="hidden md:block fixed top-0 left-0 w-full z-50">
         <div className="backdrop-blur-xl bg-white/70 border-b border-indigo-100 shadow-lg">
           <div className="max-w-7xl mx-auto flex items-center justify-between px-2 h-14">
-            <div className="flex items-center gap-3 select-none pr-4">
-              <FaCarSide className="text-xl text-indigo-600 drop-shadow" />
+            <Link href="/" className="flex items-center gap-3 select-none pr-4 hover:opacity-80 transition-opacity">
+              <img
+                src="/logo/logo.png"
+                alt="Nitya Tour & Travels Logo"
+                width={60}
+                height={60}
+              />
               <span className="text-lg font-extrabold text-indigo-700 tracking-wide">Nitya Tour & Travels</span>
-            </div>
+            </Link>
             <div className="h-8 w-px bg-indigo-200 mx-2 hidden lg:block" />
             <ul className="flex gap-2 lg:gap-3 xl:gap-4 items-center">
               {navLinks.map(link => (
