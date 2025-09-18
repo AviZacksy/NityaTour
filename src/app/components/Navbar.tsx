@@ -1,10 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { FaCarSide } from "react-icons/fa";
 import { useState } from "react";
 import ContactModal from "./ContactModal";
-import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },

@@ -4,7 +4,6 @@ import HeroSection from "./components/HeroSection";
 import CarImageSlider from "./components/CarImageSlider";
 import StickyContactButtons from "./components/StickyContactButtons";
 import HotelSection from "./components/HotelSection";
-import Image from 'next/image';
 // import CarsGrid from "./components/CarsGrid";
 // import WhyChooseUs from "./components/WhyChooseUs";
 

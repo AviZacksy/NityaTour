@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { FaShieldAlt, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope, FaInstagram, FaStar } from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
-import Image from "next/image";
 
 interface Company {
   company_name: string;
