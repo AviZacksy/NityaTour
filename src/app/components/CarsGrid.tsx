@@ -41,74 +41,103 @@ interface CarsGridProps {
 
 export default function CarsGrid({ cars, company, CarImageSlider }: CarsGridProps) {
   return (
-    <section id="our-cars" className="max-w-7xl mx-auto px-4 mb-20">
+    <section id="our-cars" className="mx-auto max-w-6xl px-4 py-16 lg:px-6 lg:py-20">
       <RevealOnScroll>
-        <SectionHeading>Our Cars</SectionHeading>
-        <p className="text-xl md:text-2xl text-yellow-700 font-semibold mt-4 mb-8 text-center max-w-3xl mx-auto drop-shadow-lg animate-fade-in-up">
-          Discover our premium fleet of well-maintained, sanitized, and stylish vehicles—perfect for every journey. Whether you need comfort, luxury, or space, we have the right car for you. Book now and experience the best ride in town!
+        <SectionHeading>Our fleet</SectionHeading>
+        <p className="mx-auto mb-12 max-w-2xl text-center text-base leading-relaxed text-stone-600 md:text-lg">
+          Sanitised, well‑maintained cars for city rides and outstation—pick what fits your group and
+          route.
         </p>
       </RevealOnScroll>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
         {cars.map((car: Car, idx: number) => (
           <RevealOnScroll key={idx}>
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-indigo-100 flex flex-col group hover:shadow-yellow-200 hover:scale-[1.03] transition-all duration-300 overflow-hidden">
-              <div className="relative w-full h-64 md:h-64 rounded-t-3xl overflow-hidden">
+            <article className="flex h-full flex-col overflow-hidden rounded-xl border border-stone-200 bg-[var(--surface)] shadow-sm transition-shadow hover:shadow-md">
+              <div className="relative h-56 w-full border-b border-stone-100 bg-stone-50 md:h-60">
                 <CarImageSlider images={car.images} folder={car.folder} alt={car.model} />
               </div>
-              <div className="flex-1 flex flex-col p-6">
-                <h4 className="text-2xl font-extrabold text-indigo-900 mb-2 group-hover:text-yellow-600 transition">{car.model}</h4>
-                <div className="flex items-center gap-4 text-gray-600 text-base mb-3">
-                  <span className="flex items-center gap-2"><FaUserFriends className="text-indigo-400" /> {car.seating ? `${car.seating}+1` : "-"} Seats</span>
-                  <span className="flex items-center gap-2"><FaGasPump className="text-yellow-500" /> {car.fuel}</span>
-                  {car.rate?.ac && <span className="flex items-center gap-2"><FaSnowflake className="text-blue-400" /> AC</span>}
+              <div className="flex flex-1 flex-col p-5 md:p-6">
+                <h3 className="text-lg font-semibold tracking-tight text-stone-900">{car.model}</h3>
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-stone-600">
+                  <span className="inline-flex items-center gap-2">
+                    <FaUserFriends className="text-stone-400" aria-hidden />
+                    {car.seating ? `${car.seating}+1` : "—"} seats
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <FaGasPump className="text-stone-400" aria-hidden />
+                    {car.fuel || "—"}
+                  </span>
+                  {car.rate?.ac && (
+                    <span className="inline-flex items-center gap-2">
+                      <FaSnowflake className="text-stone-400" aria-hidden />
+                      AC
+                    </span>
+                  )}
                 </div>
-                <div className="flex flex-wrap gap-3 text-yellow-700 font-bold text-lg mb-2">
-                  {car.rate?.ac && <span className="flex items-center gap-1"><FaRupeeSign />AC: {car.rate.ac}/km</span>}
-                  {car.rate?.non_ac && <span className="flex items-center gap-1"><FaRupeeSign />Non-AC: {car.rate.non_ac}/km</span>}
+                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-stone-800">
+                  {car.rate?.ac && (
+                    <span className="inline-flex items-center gap-1">
+                      <FaRupeeSign className="opacity-60" aria-hidden />
+                      AC: {car.rate.ac}/km
+                    </span>
+                  )}
+                  {car.rate?.non_ac && (
+                    <span className="inline-flex items-center gap-1">
+                      <FaRupeeSign className="opacity-60" aria-hidden />
+                      Non‑AC: {car.rate.non_ac}/km
+                    </span>
+                  )}
                 </div>
-                <span className="text-sm text-gray-500 mb-4">Per day charge: <span className="font-semibold text-indigo-700">₹{car.per_day_charge} (250 KM)</span></span>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="flex items-center gap-2 text-green-600 text-sm"><FaCheckCircle /> Clean & Sanitized</span>
-                  <span className="flex items-center gap-2 text-green-600 text-sm"><FaCheckCircle /> Verified Driver</span>
-                  <span className="flex items-center gap-2 text-green-600 text-sm"><FaCheckCircle /> GPS Enabled</span>
-                </div>
-                <div className="mt-auto w-full flex flex-col items-center">
-                  <div className="w-full flex flex-col md:flex-row gap-4 items-center justify-center bg-gradient-to-r from-yellow-100 via-white to-yellow-50 rounded-2xl shadow-lg p-4 mb-2 border border-yellow-200">
-                    <a
-                      href={`https://wa.me/${company?.contact?.whatsapp || "8269058399"}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 whitespace-nowrap text-center bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500 text-white px-8 py-4 rounded-full font-extrabold text-lg shadow-lg hover:from-pink-600 hover:to-yellow-600 hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-pink-200"
-                      style={{ minWidth: '160px' }}
-                    >
-                      Book Now
-                    </a>
-                    <a
-                      href={`/all-cars#${encodeURIComponent(car.folder)}`}
-                      className="flex-1 whitespace-nowrap inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-lg font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white shadow-lg hover:from-blue-600 hover:to-purple-600 hover:scale-105 transition-all duration-200 border-0 focus:outline-none focus:ring-4 focus:ring-blue-200"
-                      style={{ minWidth: '180px' }}
-                    >
-                      <FaCamera className="text-xl" />
-                      View All Images
-                    </a>
-                  </div>
+                <p className="mt-2 text-xs text-stone-500">
+                  Per day (250 km):{" "}
+                  <span className="font-medium text-stone-800">₹{car.per_day_charge}</span>
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-stone-600">
+                  <li className="inline-flex items-center gap-1.5">
+                    <FaCheckCircle className="text-teal-700" aria-hidden />
+                    Clean & sanitised
+                  </li>
+                  <li className="inline-flex items-center gap-1.5">
+                    <FaCheckCircle className="text-teal-700" aria-hidden />
+                    Verified driver
+                  </li>
+                  <li className="inline-flex items-center gap-1.5">
+                    <FaCheckCircle className="text-teal-700" aria-hidden />
+                    GPS
+                  </li>
+                </ul>
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-stretch">
+                  <a
+                    href={`https://wa.me/${company?.contact?.whatsapp || "8269058399"}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex flex-1 items-center justify-center rounded-md bg-teal-800 px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-teal-900"
+                  >
+                    Book on WhatsApp
+                  </a>
+                  <a
+                    href={`/all-cars#${encodeURIComponent(car.folder)}`}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-md border border-stone-300 bg-transparent px-4 py-3 text-sm font-medium text-stone-800 transition-colors hover:bg-stone-50"
+                  >
+                    <FaCamera aria-hidden />
+                    Gallery
+                  </a>
                 </div>
               </div>
-            </div>
+            </article>
           </RevealOnScroll>
         ))}
       </div>
       <CarNameList cars={cars} />
-      <div className="flex justify-center mt-10">
+      <div className="mt-12 flex justify-center">
         <a
           href="/all-cars"
-          className="inline-flex items-center gap-4 px-12 py-7 rounded-2xl text-2xl font-extrabold bg-white/30 backdrop-blur-md border-2 border-yellow-400 shadow-2xl text-indigo-900 hover:shadow-yellow-400/60 hover:scale-105 transition-all duration-300 hover:bg-yellow-100/60 focus:outline-none focus:ring-4 focus:ring-yellow-300"
-          style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)' }}
+          className="inline-flex items-center gap-2 rounded-md border border-stone-300 bg-[var(--surface)] px-6 py-3 text-sm font-medium text-stone-900 transition-colors hover:border-stone-400 hover:bg-stone-50"
         >
-          <FaCamera className="text-3xl text-yellow-500 drop-shadow" />
-          View All Car Images
+          <FaCamera className="text-stone-500" aria-hidden />
+          Open full gallery
         </a>
       </div>
     </section>
   );
-} 
+}

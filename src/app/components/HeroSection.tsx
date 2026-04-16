@@ -1,6 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FaShieldAlt, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope, FaInstagram, FaStar } from "react-icons/fa";
+import Image from "next/image";
+import {
+  FaShieldAlt,
+  FaClock,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaInstagram,
+} from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
 
 interface Company {
@@ -17,6 +25,13 @@ interface Company {
   };
 }
 
+const pillars = [
+  { title: "Safety first", body: "Regular checks and verified drivers." },
+  { title: "Clear pricing", body: "Straightforward rates, no surprises." },
+  { title: "All‑India reach", body: "City rides, outstation, and tours." },
+  { title: "Support", body: "Help when you need it, day or night." },
+];
+
 export default function HeroSection() {
   const [company, setCompany] = useState<Company | null>(null);
 
@@ -27,137 +42,140 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-white py-20">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Main Hero Content */}
+    <section className="relative w-full border-b border-stone-200/80 bg-[var(--surface)] pt-24 pb-16 md:pt-28 md:pb-20">
+      <div className="mx-auto max-w-6xl px-4 lg:px-6">
         <RevealOnScroll>
-          <div className="text-center mb-16 -mt-35">
-            <div className="flex justify-center mb2">
-              <img
-                src="/logo/logo.png"
-                alt="Nitya Tour & Travels Logo"
-                width={400}
-                height={400}
-              />
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-stone-500">
+                Indore · Cab · Tours · Hotels
+              </p>
+              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-stone-900 sm:text-5xl md:text-[3.25rem] md:leading-[1.1]">
+                {company?.company_name || "Nitya Tour & Travels"}
+              </h1>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-stone-600">
+                Reliable cars and tour planning from Indore—local trips, outstation, and packages
+                with a calm, professional team.
+              </p>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-stone-500">
+                Travel agency in Indore: car rental, taxi, tour packages, and hotel support—serving
+                customers across India with well‑maintained vehicles.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="#our-cars"
+                  className="inline-flex items-center justify-center rounded-md bg-stone-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-stone-800"
+                >
+                  View fleet
+                </a>
+                <a
+                  href={`https://wa.me/${company?.contact?.whatsapp || "8269058399"}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-transparent px-5 py-3 text-sm font-medium text-stone-800 transition-colors hover:border-stone-400 hover:bg-stone-50"
+                >
+                  WhatsApp us
+                </a>
+              </div>
             </div>
-            <span className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-600 text-indigo-900 font-bold px-6 py-2 rounded-full mb-4 shadow-lg animate-bounce">
-              <FaStar className="inline mr-2" />
-          Trusted by 10,000+ Customers
-        </span>
-            <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-indigo-600 via-yellow-500 to-indigo-600 bg-clip-text text-transparent mb-6 animate-fade-in-up">
-              {company?.company_name || "Nitya Tour & Travels"}
-        </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-4 animate-fade-in-up delay-100">
-              Best Travel Agency in Indore - Premium Car Rental Services
-            </p>
-            <p className="text-lg text-gray-600 mb-8 animate-fade-in-up delay-200">
-              Tour planners in Indore offering rent cars, taxi service, and tour package planner. Your trusted travel agency near me.
-            </p>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative flex w-full max-w-sm flex-col items-center rounded-2xl border border-stone-200 bg-[var(--page-bg)] p-8">
+                <Image
+                  src="/logo/logo.png"
+                  alt="Nitya Tour & Travels logo"
+                  width={160}
+                  height={160}
+                  className="opacity-95"
+                />
+                <p className="mt-4 text-center text-sm text-stone-500">
+                  Serving Indore and pan‑India travel with care and consistency.
+                </p>
+              </div>
+            </div>
           </div>
         </RevealOnScroll>
 
-        {/* Company Info Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Company Details & Contact */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
           <RevealOnScroll>
-            <div className="space-y-8">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-indigo-100">
-                <h3 className="text-3xl font-bold text-indigo-900 mb-6">
-                  Best Travels in Indore - About Our Company
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <FaMapMarkerAlt className="text-yellow-500 text-xl" />
-                    <span className="font-semibold">{company?.location || "Indore, Madhya Pradesh"}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <FaShieldAlt className="text-yellow-500 text-xl" />
-                    <span className="font-semibold">Service Area: {company?.service_area || "All India"}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <FaClock className="text-yellow-500 text-xl" />
-                    <span className="font-semibold">24/7 Rent Car Service Indore Available</span>
-                  </div>
-                </div>
-              </div>
-              {/* Contact Info */}
-              <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-3xl p-8 shadow-xl">
-                <h4 className="text-2xl font-bold text-indigo-900 mb-6">Get In Touch</h4>
-                <div className="space-y-4">
-                  <a 
-                    href={`tel:${company?.contact?.phone || "8269058399"}`}
-                    className="flex items-center gap-3 text-indigo-900 hover:text-white transition-colors"
+            <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
+                At a glance
+              </h2>
+              <ul className="mt-5 space-y-4 text-stone-700">
+                <li className="flex gap-3">
+                  <FaMapMarkerAlt className="mt-0.5 shrink-0 text-teal-700" aria-hidden />
+                  <span>{company?.location || "Indore, Madhya Pradesh"}</span>
+                </li>
+                <li className="flex gap-3">
+                  <FaShieldAlt className="mt-0.5 shrink-0 text-teal-700" aria-hidden />
+                  <span>Service area: {company?.service_area || "All India"}</span>
+                </li>
+                <li className="flex gap-3">
+                  <FaClock className="mt-0.5 shrink-0 text-teal-700" aria-hidden />
+                  <span>Bookings & assistance when you need them</span>
+                </li>
+              </ul>
+            </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll>
+            <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
+                Contact
+              </h2>
+              <div className="mt-5 space-y-3 text-sm">
+                <a
+                  href={`tel:${company?.contact?.phone || "8269058399"}`}
+                  className="flex items-center gap-3 rounded-md py-1 text-stone-800 transition-colors hover:text-teal-800"
+                >
+                  <FaPhone className="text-stone-400" aria-hidden />
+                  <span className="font-medium">{company?.contact?.phone || "8269058399"}</span>
+                </a>
+                <a
+                  href={`mailto:${company?.contact?.email || "mynityatravels@gmail.com"}`}
+                  className="flex items-center gap-3 rounded-md py-1 text-stone-800 transition-colors hover:text-teal-800"
+                >
+                  <FaEnvelope className="text-stone-400" aria-hidden />
+                  <span className="break-all font-medium">
+                    {company?.contact?.email || "mynityatravels@gmail.com"}
+                  </span>
+                </a>
+                {company?.social_media?.instagram && (
+                  <a
+                    href={company.social_media.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 rounded-md py-1 text-stone-800 transition-colors hover:text-teal-800"
                   >
-                    <FaPhone className="text-xl" />
-                    <span className="font-semibold">{company?.contact?.phone || "8269058399"}</span>
+                    <FaInstagram className="text-stone-400" aria-hidden />
+                    <span className="font-medium">Instagram</span>
                   </a>
-                  <a 
-                    href={`mailto:${company?.contact?.email || "mynityatravels@gmail.com"}`}
-                    className="flex items-center gap-3 text-indigo-900 hover:text-white transition-colors"
-                  >
-                    <FaEnvelope className="text-xl" />
-                    <span className="font-semibold">{company?.contact?.email || "mynityatravels@gmail.com"}</span>
-                  </a>
-                  {company?.social_media?.instagram && (
-                    <a 
-                      href={company.social_media.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-indigo-900 hover:text-white transition-colors"
-                    >
-                      <FaInstagram className="text-xl" />
-                      <span className="font-semibold">Follow us on Instagram</span>
-                    </a>
-                  )}
-                </div>
+                )}
               </div>
             </div>
           </RevealOnScroll>
-          {/* Mission & Values */}
+
           <RevealOnScroll>
-            <div className="space-y-8">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-indigo-100">
-                <h4 className="text-2xl font-bold text-indigo-900 mb-6">Our Mission - Tour Package Planner</h4>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  As the best travels in Indore, we provide exceptional car rental services and tour package planner with the highest standards of safety, 
-                  comfort, and reliability. We strive to make every journey memorable by offering 
-                  well-maintained vehicles and professional service to our valued customers. Your trusted tour and travels near me.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white p-4 rounded-2xl">
-                    <h5 className="font-bold mb-2">Safety First</h5>
-                    <p className="text-sm opacity-90">All vehicles undergo regular safety checks</p>
-                  </div>
-                  <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-indigo-900 p-4 rounded-2xl">
-                    <h5 className="font-bold mb-2">Best Cab Service Indore</h5>
-                    <p className="text-sm opacity-90">Competitive pricing with no hidden charges</p>
-                  </div>
-                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-2xl">
-                    <h5 className="font-bold mb-2">Taxi Service Indore</h5>
-                    <p className="text-sm opacity-90">Round the clock customer assistance</p>
-                  </div>
-                  <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-4 rounded-2xl">
-                    <h5 className="font-bold mb-2">Rent Cabs Near Me</h5>
-                    <p className="text-sm opacity-90">Diverse fleet to meet all your needs</p>
-                  </div>
-                </div>
-              </div>
+            <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
+                How we work
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-stone-600">
+                We focus on punctual pickups, clean vehicles, and courteous drivers—whether you need
+                a day in the city or a longer itinerary.
+              </p>
+              <ul className="mt-5 space-y-3">
+                {pillars.map((p) => (
+                  <li key={p.title} className="border-t border-stone-100 pt-3 first:border-0 first:pt-0">
+                    <p className="text-sm font-medium text-stone-900">{p.title}</p>
+                    <p className="mt-1 text-sm text-stone-600">{p.body}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </RevealOnScroll>
         </div>
-
-        {/* CTA Button */}
-        <RevealOnScroll>
-          <div className="text-center">
-        <a
-          href="#our-cars"
-              className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-600 text-indigo-900 font-bold px-12 py-6 rounded-full shadow-xl text-xl md:text-2xl hover:scale-105 hover:from-yellow-500 hover:to-yellow-700 transition-all duration-300 animate-pulse"
-        >
-              Rent Cars in Indore - Book Your Ride Now
-        </a>
-      </div>
-        </RevealOnScroll>
       </div>
     </section>
   );
-} 
+}

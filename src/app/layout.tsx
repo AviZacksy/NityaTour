@@ -73,7 +73,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="DeiydIuvITFg-iCpH4WgVTfaxEHIqyVNoxW-_GdWuJY" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-stone-900 bg-[var(--page-bg)]`}
       >
         <Navbar />
         <MobileMenu />
