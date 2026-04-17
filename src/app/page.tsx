@@ -29,6 +29,8 @@ interface Company {
   contact: {
     phone: string;
     whatsapp: string;
+    phone_alt?: string;
+    whatsapp_alt?: string;
     email: string;
   };
   social_media?: {
@@ -65,7 +67,6 @@ const carImages: Record<string, string[]> = {
   ],
   "Innova-7plus1": [
     "travel-agents.png",
-    "WhatsApp Image 2025-06-24 at 14.56.13_548bda35.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.14_d3113ba1.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.15_073c41f9.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.16_47da2324.jpg",

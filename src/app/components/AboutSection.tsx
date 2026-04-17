@@ -10,6 +10,8 @@ interface Company {
   contact: {
     phone: string;
     whatsapp: string;
+    phone_alt?: string;
+    whatsapp_alt?: string;
     email: string;
   };
   social_media?: {
@@ -22,6 +24,13 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ company }: AboutSectionProps) {
+  const formatPhoneDisplay = (value?: string) => {
+    if (!value) return "";
+    const digits = value.replace(/\s+/g, "");
+    const m = digits.match(/^(\d{5})(\d{5})$/);
+    return m ? `${m[1]} ${m[2]}` : value;
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-indigo-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4">
@@ -59,12 +68,25 @@ export default function AboutSection({ company }: AboutSectionProps) {
               
               <div className="space-y-4">
                 <a 
-                  href={`tel:${company?.contact?.phone || "8269058399"}`}
+                  href={`tel:${company?.contact?.phone || "8435067145"}`}
                   className="flex items-center gap-3 text-indigo-900 hover:text-white transition-colors"
                 >
                   <FaPhone className="text-xl" />
-                  <span className="font-semibold">{company?.contact?.phone || "8269058399"}</span>
+                  <span className="font-semibold">
+                    {formatPhoneDisplay(company?.contact?.phone || "8435067145")}
+                  </span>
                 </a>
+                {(company?.contact?.phone_alt || "8269058399") && (
+                  <a 
+                    href={`tel:${company?.contact?.phone_alt || "8269058399"}`}
+                    className="flex items-center gap-3 text-indigo-900 hover:text-white transition-colors"
+                  >
+                    <FaPhone className="text-xl opacity-0" aria-hidden />
+                    <span className="font-semibold">
+                      {formatPhoneDisplay(company?.contact?.phone_alt || "8269058399")}
+                    </span>
+                  </a>
+                )}
                 
                 <a 
                   href={`mailto:${company?.contact?.email || "mynityatravels@gmail.com"}`}

@@ -18,6 +18,8 @@ interface Company {
   contact: {
     phone: string;
     whatsapp: string;
+    phone_alt?: string;
+    whatsapp_alt?: string;
     email: string;
   };
   social_media?: {
@@ -34,6 +36,13 @@ const pillars = [
 
 export default function HeroSection() {
   const [company, setCompany] = useState<Company | null>(null);
+
+  const formatPhoneDisplay = (value?: string) => {
+    if (!value) return "";
+    const digits = value.replace(/\s+/g, "");
+    const m = digits.match(/^(\d{5})(\d{5})$/);
+    return m ? `${m[1]} ${m[2]}` : value;
+  };
 
   useEffect(() => {
     fetch("/data/data.json")
@@ -69,7 +78,7 @@ export default function HeroSection() {
                   View fleet
                 </a>
                 <a
-                  href={`https://wa.me/${company?.contact?.whatsapp || "8269058399"}`}
+                  href={`https://wa.me/${company?.contact?.whatsapp || "8435067145"}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-transparent px-5 py-3 text-sm font-medium text-stone-800 transition-colors hover:border-stone-400 hover:bg-stone-50"
@@ -125,11 +134,19 @@ export default function HeroSection() {
               </h2>
               <div className="mt-5 space-y-3 text-sm">
                 <a
-                  href={`tel:${company?.contact?.phone || "8269058399"}`}
+                  href={`tel:${company?.contact?.phone || "8435067145"}`}
                   className="flex items-center gap-3 rounded-md py-1 text-stone-800 transition-colors hover:text-teal-800"
                 >
                   <FaPhone className="text-stone-400" aria-hidden />
-                  <span className="font-medium">{company?.contact?.phone || "8269058399"}</span>
+                  <span className="font-medium">
+                    {formatPhoneDisplay(company?.contact?.phone || "8435067145")}
+                    {(company?.contact?.phone_alt || "8269058399") && (
+                      <>
+                        {" "}
+                        / {formatPhoneDisplay(company?.contact?.phone_alt || "8269058399")}
+                      </>
+                    )}
+                  </span>
                 </a>
                 <a
                   href={`mailto:${company?.contact?.email || "mynityatravels@gmail.com"}`}

@@ -10,6 +10,8 @@ interface Company {
   contact: {
     phone: string;
     whatsapp: string;
+    phone_alt?: string;
+    whatsapp_alt?: string;
     email: string;
   };
   social_media?: {
@@ -34,7 +36,12 @@ interface Car {
 interface AllCarsProps {
   cars: Car[];
   company: Company;
-  CarImageSlider: React.ComponentType<{ images: string[]; folder: string; alt: string }>;
+  CarImageSlider: React.ComponentType<{
+    images: string[];
+    folder: string;
+    alt: string;
+    overlayLabel?: string;
+  }>;
 }
 
 export default function AllCars({ cars, company, CarImageSlider }: AllCarsProps) {
@@ -49,7 +56,12 @@ export default function AllCars({ cars, company, CarImageSlider }: AllCarsProps)
               className="relative bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-indigo-100 flex flex-col items-center p-5 group hover:shadow-yellow-300 hover:scale-[1.04] transition-all duration-300 cursor-pointer overflow-hidden animate-fadeIn"
             >
               <div className="w-full flex justify-center">
-                <CarImageSlider images={car.images} folder={car.folder} alt={car.model} />
+                <CarImageSlider
+                  images={car.images}
+                  folder={car.folder}
+                  alt={car.model}
+                  overlayLabel={car.model}
+                />
               </div>
               <h4 className="text-xl font-extrabold mb-2 mt-4 text-indigo-900 group-hover:text-yellow-600 transition">{car.model}</h4>
               <div className="flex gap-2 mb-2 flex-wrap justify-center">
@@ -70,7 +82,7 @@ export default function AllCars({ cars, company, CarImageSlider }: AllCarsProps)
               </div>
               <span className="text-xs text-gray-500 mb-3">Per day charge: ₹{car.per_day_charge}</span>
               <a
-                href={`https://wa.me/${company?.contact?.whatsapp || "8269058399"}`}
+                href={`https://wa.me/${company?.contact?.whatsapp || "8435067145"}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-green-400 to-green-600 text-white px-6 py-2 rounded-full font-bold shadow-lg hover:scale-110 hover:from-green-500 hover:to-green-700 transition-all text-base group-hover:shadow-green-300 flex items-center gap-2 border-2 border-white"

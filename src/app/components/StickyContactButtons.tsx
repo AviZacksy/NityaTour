@@ -7,6 +7,8 @@ interface Company {
   contact: {
     phone: string;
     whatsapp: string;
+    phone_alt?: string;
+    whatsapp_alt?: string;
     email: string;
   };
   social_media?: {
@@ -19,8 +21,8 @@ interface StickyContactButtonsProps {
 }
 
 export default function StickyContactButtons({ company }: StickyContactButtonsProps) {
-  const whatsapp = company?.contact?.whatsapp || "8269058399";
-  const phone = company?.contact?.phone || "8269058399";
+  const whatsapp = company?.contact?.whatsapp || "8435067145";
+  const phone = company?.contact?.phone || "8435067145";
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2 sm:bottom-6 sm:right-6">
       <a

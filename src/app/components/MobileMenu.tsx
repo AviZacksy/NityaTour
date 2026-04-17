@@ -14,8 +14,10 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-const PHONE = "8269058399";
-const WHATSAPP = "8269058399";
+const PHONE = "8435067145";
+const PHONE_ALT = "8269058399";
+const WHATSAPP = "8435067145";
+const WHATSAPP_ALT = "8269058399";
 
 const MobileMenu: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -113,9 +115,23 @@ const MobileMenu: React.FC = () => {
               <button
                 type="button"
                 className="w-full rounded-md border border-stone-300 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-50"
+                onClick={() => window.open(`tel:${PHONE_ALT}`, "_self")}
+              >
+                Call {PHONE_ALT}
+              </button>
+              <button
+                type="button"
+                className="w-full rounded-md border border-stone-300 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-50"
                 onClick={() => window.open(`https://wa.me/${WHATSAPP}`, "_blank")}
               >
                 WhatsApp {WHATSAPP}
+              </button>
+              <button
+                type="button"
+                className="w-full rounded-md border border-stone-300 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-50"
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_ALT}`, "_blank")}
+              >
+                WhatsApp {WHATSAPP_ALT}
               </button>
               <button
                 type="button"

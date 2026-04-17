@@ -26,6 +26,8 @@ interface Company {
   contact: {
     phone: string;
     whatsapp: string;
+    phone_alt?: string;
+    whatsapp_alt?: string;
     email: string;
   };
   social_media?: {
@@ -36,7 +38,12 @@ interface Company {
 interface CarsGridProps {
   cars: Car[];
   company: Company;
-  CarImageSlider: React.ComponentType<{ images: string[]; folder: string; alt: string }>;
+  CarImageSlider: React.ComponentType<{
+    images: string[];
+    folder: string;
+    alt: string;
+    overlayLabel?: string;
+  }>;
 }
 
 export default function CarsGrid({ cars, company, CarImageSlider }: CarsGridProps) {
@@ -54,7 +61,12 @@ export default function CarsGrid({ cars, company, CarImageSlider }: CarsGridProp
           <RevealOnScroll key={idx}>
             <article className="flex h-full flex-col overflow-hidden rounded-xl border border-stone-200 bg-[var(--surface)] shadow-sm transition-shadow hover:shadow-md">
               <div className="relative h-56 w-full border-b border-stone-100 bg-stone-50 md:h-60">
-                <CarImageSlider images={car.images} folder={car.folder} alt={car.model} />
+                <CarImageSlider
+                  images={car.images}
+                  folder={car.folder}
+                  alt={car.model}
+                  overlayLabel={car.model}
+                />
               </div>
               <div className="flex flex-1 flex-col p-5 md:p-6">
                 <h3 className="text-lg font-semibold tracking-tight text-stone-900">{car.model}</h3>
@@ -108,7 +120,7 @@ export default function CarsGrid({ cars, company, CarImageSlider }: CarsGridProp
                 </ul>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-stretch">
                   <a
-                    href={`https://wa.me/${company?.contact?.whatsapp || "8269058399"}`}
+                    href={`https://wa.me/${company?.contact?.whatsapp || "8435067145"}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex flex-1 items-center justify-center rounded-md bg-teal-800 px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-teal-900"

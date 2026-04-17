@@ -6,13 +6,17 @@ interface ContactModalProps {
   onClose: () => void;
   phone?: string;
   whatsapp?: string;
+  phoneAlt?: string;
+  whatsappAlt?: string;
 }
 
 export default function ContactModal({
   open,
   onClose,
-  phone = "8269058399",
-  whatsapp = "8269058399",
+  phone = "8435067145",
+  whatsapp = "8435067145",
+  phoneAlt = "8269058399",
+  whatsappAlt = "8269058399",
 }: ContactModalProps) {
   if (!open) return null;
   return (
@@ -28,6 +32,15 @@ export default function ContactModal({
           >
             Call {phone}
           </button>
+          {!!phoneAlt && (
+            <button
+              type="button"
+              className="w-full rounded-md border border-stone-300 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-50"
+              onClick={() => window.open(`tel:${phoneAlt}`, "_self")}
+            >
+              Call {phoneAlt}
+            </button>
+          )}
           <button
             type="button"
             className="w-full rounded-md border border-stone-300 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-50"
@@ -35,6 +48,15 @@ export default function ContactModal({
           >
             WhatsApp {whatsapp}
           </button>
+          {!!whatsappAlt && (
+            <button
+              type="button"
+              className="w-full rounded-md border border-stone-300 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-50"
+              onClick={() => window.open(`https://wa.me/${whatsappAlt}`, "_blank")}
+            >
+              WhatsApp {whatsappAlt}
+            </button>
+          )}
           <button
             type="button"
             className="text-sm text-stone-500 underline-offset-4 hover:text-stone-800 hover:underline"

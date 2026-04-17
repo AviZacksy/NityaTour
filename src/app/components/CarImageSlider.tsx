@@ -6,9 +6,10 @@ interface CarImageSliderProps {
   images: string[];
   folder: string;
   alt: string;
+  overlayLabel?: string;
 }
 
-export default function CarImageSlider({ images, folder, alt }: CarImageSliderProps) {
+export default function CarImageSlider({ images, folder, alt, overlayLabel }: CarImageSliderProps) {
   const [idx, setIdx] = useState(0);
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -105,6 +106,14 @@ export default function CarImageSlider({ images, folder, alt }: CarImageSliderPr
           }}
           draggable={false}
         />
+        {overlayLabel && (
+          <>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-16 border-t border-stone-200/60 bg-white/85 backdrop-blur-sm md:h-20" />
+            <div className="pointer-events-none absolute bottom-4 left-1/2 z-30 -translate-x-1/2 rounded-md border border-white/30 bg-stone-900/70 px-3 py-1 text-xs font-semibold tracking-wide text-white backdrop-blur">
+              {overlayLabel}
+            </div>
+          </>
+        )}
         {images.length > 1 && (
           <>
             <button

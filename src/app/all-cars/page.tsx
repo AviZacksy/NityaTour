@@ -27,7 +27,6 @@ const carImages: { [key: string]: string[] } = {
   ],
   "Innova-7plus1": [
     "travel-agents.png",
-    "WhatsApp Image 2025-06-24 at 14.56.13_548bda35.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.14_d3113ba1.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.15_073c41f9.jpg",
     "WhatsApp Image 2025-06-24 at 14.56.16_47da2324.jpg",
@@ -55,7 +54,7 @@ const carImages: { [key: string]: string[] } = {
   ],
 };
 
-const whatsapp = "8269058399";
+const whatsapp = "8435067145";
 
 export default function AllCarsGallery() {
   return (
@@ -107,6 +106,10 @@ export default function AllCarsGallery() {
                       sizes="(max-width: 640px) 100vw, 25vw"
                       {...(idx === 0 ? { priority: true } : { loading: "lazy" })}
                     />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 border-t border-stone-200/60 bg-white/85 backdrop-blur-sm" />
+                    <div className="pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-md border border-white/30 bg-stone-900/70 px-3 py-1 text-[11px] font-semibold tracking-wide text-white backdrop-blur">
+                      {folder}
+                    </div>
                   </div>
                   <a
                     href={`https://wa.me/${whatsapp}`}
