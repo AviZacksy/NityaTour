@@ -3,13 +3,18 @@ import React, { useEffect, useState } from "react";
 import SectionHeading from "./SectionHeading";
 import RevealOnScroll from "./RevealOnScroll";
 import Image from "next/image";
+import type { SiteContent } from "@/lib/companyTypes";
 
 interface Hotel {
   name: string;
   image: string;
 }
 
-const HotelSection: React.FC = () => {
+type Props = {
+  copy?: SiteContent["hotel_section"];
+};
+
+const HotelSection: React.FC<Props> = ({ copy }) => {
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [showImages, setShowImages] = useState(false);
 
@@ -19,14 +24,19 @@ const HotelSection: React.FC = () => {
       .then((data) => setHotels(data.hotels || []));
   }, []);
 
+  const heading = copy?.heading || "Hotel & stay";
+  const subtitle =
+    copy?.subtitle ||
+    "Tour packages with comfortable stay options—tap below to preview property photos.";
+  const showLabel = copy?.show_photos || "Show photos";
+  const hideLabel = copy?.hide_photos || "Hide photos";
+
   return (
     <section id="hotel-nitya" className="border-t border-stone-200/80 bg-[var(--surface)] py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         <RevealOnScroll>
-          <SectionHeading>Hotel & stay</SectionHeading>
-          <p className="mx-auto -mt-4 mb-8 max-w-2xl text-center text-base text-stone-600">
-            Tour packages with comfortable stay options—tap below to preview property photos.
-          </p>
+          <SectionHeading>{heading}</SectionHeading>
+          <p className="mx-auto -mt-4 mb-8 max-w-2xl text-center text-base text-stone-600">{subtitle}</p>
           <div className="flex justify-center">
             <button
               type="button"
@@ -37,7 +47,7 @@ const HotelSection: React.FC = () => {
               }`}
               onClick={() => setShowImages((v) => !v)}
             >
-              {showImages ? "Hide photos" : "Show photos"}
+              {showImages ? hideLabel : showLabel}
             </button>
           </div>
         </RevealOnScroll>
@@ -49,7 +59,7 @@ const HotelSection: React.FC = () => {
                   <div className="relative aspect-[4/3] w-full">
                     <Image
                       src={`/Hotel/${hotel.image}`}
-                      alt={hotel.name}
+                      alt={hotel.name || "Hotel"}
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 33vw"
@@ -57,7 +67,7 @@ const HotelSection: React.FC = () => {
                     />
                   </div>
                   <figcaption className="border-t border-stone-100 px-4 py-3 text-sm font-medium text-stone-800">
-                    {hotel.name}
+                    {hotel.name || "Property"}
                   </figcaption>
                 </figure>
               </RevealOnScroll>

@@ -1,16 +1,134 @@
 {
-    "company_name": "Nitya Tour & Travels",
-    "location": "Indore, Madhya Pradesh",
-    "service_area": "All India",
-    "contact": {
-      "phone": "8435067145",
-      "phone_alt": "8269058399",
-      "whatsapp": "8435067145",
-      "whatsapp_alt": "8269058399",
-      "email": "mynityatravels@gmail.com"
+  "company_name": "Nitya Tour & Travels",
+  "hero": {
+    "kicker": "Indore · Cab · Tours · Hotels",
+    "headline": "Nitya Tour & Travels",
+    "lead": "Reliable cars and tour planning from Indore—local trips, outstation, and packages with a calm, professional team.",
+    "description": "Travel agency in Indore: car rental, taxi, tour packages, and hotel support—serving customers across India with well‑maintained vehicles.",
+    "primary_cta": { "label": "View fleet", "href": "#our-cars" },
+    "secondary_cta": { "label": "WhatsApp us", "href": "" },
+    "logo_src": "/logo/logo.png",
+    "logo_alt": "Nitya Tour & Travels logo",
+    "card_note": "Serving Indore and pan‑India travel with care and consistency."
+  },
+  "location": "Indore, Madhya Pradesh",
+  "service_area": "All India",
+  "contact": {
+    "phone": "8435067145",
+    "phone_alt": "8269058399",
+    "whatsapp": "8435067145",
+    "whatsapp_alt": "8269058399",
+    "email": "mynityatravels@gmail.com"
+  },
+  "social_media": {
+    "instagram": "https://www.instagram.com/nitya_tour_travels_indore_mp?utm_source=qr&igsh=c3I1YW1rY3Q4aDNl"
+  },
+  "fleet": {
+    "folders": [
+      "Ertiga model 2024",
+      "Hyundai aura model 2025",
+      "Innova-7plus1",
+      "innova Crysta 2019",
+      "Tavera Model 2014",
+      "Tempo"
+    ]
+  },
+  "site": {
+    "navbar_brand": "Nitya Tour & Travels",
+    "hero_cards": {
+      "at_a_glance_title": "At a glance",
+      "at_a_glance_lines": [
+        "",
+        "",
+        "Bookings & assistance when you need them"
+      ],
+      "contact_card_title": "Contact",
+      "how_we_work_title": "How we work",
+      "how_we_work_intro": "We focus on punctual pickups, clean vehicles, and courteous drivers—whether you need a day in the city or a longer itinerary.",
+      "pillars": [
+        { "title": "Safety first", "body": "Regular checks and verified drivers." },
+        { "title": "Clear pricing", "body": "Straightforward rates, no surprises." },
+        { "title": "All‑India reach", "body": "City rides, outstation, and tours." },
+        { "title": "Support", "body": "Help when you need it, day or night." }
+      ]
     },
-    "social_media": {
-      "instagram": "https://www.instagram.com/nitya_tour_travels_indore_mp?utm_source=qr&igsh=c3I1YW1rY3Q4aDNl"
+    "fleet_section": {
+      "heading": "Our fleet",
+      "lead": "Sanitised, well‑maintained cars for city rides and outstation—pick what fits your group and route."
+    },
+    "hotel_section": {
+      "heading": "Hotel & stay",
+      "subtitle": "Tour packages with comfortable stay options—tap below to preview property photos.",
+      "show_photos": "Show photos",
+      "hide_photos": "Hide photos"
+    },
+    "why_choose": {
+      "heading": "Why Nitya Tour",
+      "lead": "A travel partner in Indore that keeps things simple: safe rides, honest pricing, and dependable execution.",
+      "strengths_title": "What sets us apart",
+      "strengths": [
+        { "title": "Trusted service", "body": "Verified drivers, transparent communication, and consistent quality on every trip.", "icon": "shield" },
+        { "title": "Fair rates", "body": "Clear quotations and billing—no last‑minute confusion on common routes.", "icon": "rupee" },
+        { "title": "Pan‑India", "body": "Local, outstation, and multi‑day itineraries planned with practical routing.", "icon": "globe" },
+        { "title": "Responsive support", "body": "Booking help and trip coordination when timings or plans shift.", "icon": "headset" }
+      ],
+      "snapshot_title": "Snapshot",
+      "snapshot": [
+        { "label": "Happy customers", "value": "10,000+" },
+        { "label": "Avg. rating", "value": "4.9" },
+        { "label": "Support", "value": "24/7" },
+        { "label": "Safety focus", "value": "High" }
+      ],
+      "checklist_title": "Included experience",
+      "checklist": [
+        "Well‑maintained vehicles",
+        "Professional drivers",
+        "Flexible booking options",
+        "GPS tracking on trips",
+        "T&C apply",
+        "In any case the jurisdiction will be Indore."
+      ]
+    },
+    "footer": {
+      "kicker": "Contact",
+      "body": "Prefer a quick reply? Use the WhatsApp or Call buttons on screen—we will confirm vehicle, route, and fare clearly before you travel."
+    },
+    "foren_trip": {
+      "header_kicker": "Packages · Domestic · International",
+      "header_title": "Foreign trip & tour packages",
+      "header_lead": "Planned itineraries for families and groups—India-wide favourites plus select international destinations, handled with the same Nitya Tour discipline.",
+      "arrange_heading": "What we arrange",
+      "arrange_cards": [
+        {
+          "icon": "car",
+          "title": "Ground transport",
+          "body": "Cars suited to terrain and group size, coordinated with your dates."
+        },
+        {
+          "icon": "users",
+          "title": "Family & group trips",
+          "body": "Practical day-wise plans with room for rest and sightseeing."
+        },
+        {
+          "icon": "globe",
+          "title": "Packages",
+          "body": "Domestic, national, and hand-picked international options."
+        }
+      ],
+      "domestic_heading": "Domestic & national",
+      "domestic_places": [
+        "Sikkim",
+        "Darjeeling",
+        "Himachal Pradesh",
+        "Uttarakhand",
+        "Rajasthan",
+        "Kerala",
+        "Orissa",
+        "Spiti Valley",
+        "Gujarat"
+      ],
+      "international_heading": "International highlights",
+      "international_places": ["Thailand", "Europe", "Bali", "Vietnam", "Dubai"]
     }
   }
-  
+}

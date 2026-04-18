@@ -1,32 +1,50 @@
 "use client";
+import type { IconType } from "react-icons";
 import { FaShieldAlt, FaRupeeSign, FaGlobeAsia, FaHeadset, FaCheckCircle } from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
 import SectionHeading from "./SectionHeading";
+import type { SiteContent, WhyStrengthIcon } from "@/lib/companyTypes";
 
-const strengths = [
+const iconMap: Record<WhyStrengthIcon, IconType> = {
+  shield: FaShieldAlt,
+  rupee: FaRupeeSign,
+  globe: FaGlobeAsia,
+  headset: FaHeadset,
+};
+
+const defaultStrengths: {
+  icon: IconType;
+  title: string;
+  body: string;
+  key: WhyStrengthIcon;
+}[] = [
   {
+    key: "shield",
     icon: FaShieldAlt,
     title: "Trusted service",
     body: "Verified drivers, transparent communication, and consistent quality on every trip.",
   },
   {
+    key: "rupee",
     icon: FaRupeeSign,
     title: "Fair rates",
     body: "Clear quotations and billing—no last‑minute confusion on common routes.",
   },
   {
+    key: "globe",
     icon: FaGlobeAsia,
     title: "Pan‑India",
     body: "Local, outstation, and multi‑day itineraries planned with practical routing.",
   },
   {
+    key: "headset",
     icon: FaHeadset,
     title: "Responsive support",
     body: "Booking help and trip coordination when timings or plans shift.",
   },
 ];
 
-const checklist = [
+const defaultChecklist = [
   "Well‑maintained vehicles",
   "Professional drivers",
   "Flexible booking options",
@@ -35,15 +53,38 @@ const checklist = [
   "In any case the jurisdiction will be Indore.",
 ];
 
-export default function WhyChooseUs() {
+const defaultSnapshot = [
+  { label: "Happy customers", value: "10,000+" },
+  { label: "Avg. rating", value: "4.9" },
+  { label: "Support", value: "24/7" },
+  { label: "Safety focus", value: "High" },
+];
+
+type Props = {
+  site?: SiteContent;
+};
+
+export default function WhyChooseUs({ site }: Props) {
+  const w = site?.why_choose;
+  const strengthsFromConfig = w?.strengths?.length
+    ? w.strengths.map((s, i) => {
+        const key = s.icon && iconMap[s.icon] ? s.icon : defaultStrengths[i % defaultStrengths.length].key;
+        const Icon = iconMap[key] ?? FaShieldAlt;
+        return { Icon, title: s.title, body: s.body, key: `${s.title}-${i}` };
+      })
+    : defaultStrengths.map((s) => ({ Icon: s.icon, title: s.title, body: s.body, key: s.key }));
+
+  const checklist = w?.checklist?.length ? w.checklist : defaultChecklist;
+  const snapshot = w?.snapshot?.length ? w.snapshot : defaultSnapshot;
+
   return (
     <section id="why-choose-us" className="py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         <RevealOnScroll>
-          <SectionHeading>Why Nitya Tour</SectionHeading>
+          <SectionHeading>{w?.heading || "Why Nitya Tour"}</SectionHeading>
           <p className="mx-auto -mt-4 mb-12 max-w-2xl text-center text-base text-stone-600">
-            A travel partner in Indore that keeps things simple: safe rides, honest pricing, and
-            dependable execution.
+            {w?.lead ||
+              "A travel partner in Indore that keeps things simple: safe rides, honest pricing, and dependable execution."}
           </p>
         </RevealOnScroll>
 
@@ -51,11 +92,11 @@ export default function WhyChooseUs() {
           <RevealOnScroll>
             <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm lg:col-span-2">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
-                What sets us apart
+                {w?.strengths_title || "What sets us apart"}
               </h3>
               <ul className="mt-6 space-y-6">
-                {strengths.map(({ icon: Icon, title, body }) => (
-                  <li key={title} className="flex gap-4">
+                {strengthsFromConfig.map(({ Icon, title, body, key }) => (
+                  <li key={key} className="flex gap-4">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-stone-50 text-teal-800">
                       <Icon className="text-lg" aria-hidden />
                     </span>
@@ -73,25 +114,15 @@ export default function WhyChooseUs() {
             <RevealOnScroll>
               <div className="rounded-xl border border-stone-200 bg-stone-900 p-6 text-stone-50 shadow-sm">
                 <h3 className="text-sm font-semibold uppercase tracking-wide text-stone-400">
-                  Snapshot
+                  {w?.snapshot_title || "Snapshot"}
                 </h3>
                 <dl className="mt-6 grid grid-cols-2 gap-6">
-                  <div>
-                    <dt className="text-xs text-stone-400">Happy customers</dt>
-                    <dd className="mt-1 text-2xl font-semibold tracking-tight">10,000+</dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs text-stone-400">Avg. rating</dt>
-                    <dd className="mt-1 text-2xl font-semibold tracking-tight">4.9</dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs text-stone-400">Support</dt>
-                    <dd className="mt-1 text-2xl font-semibold tracking-tight">24/7</dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs text-stone-400">Safety focus</dt>
-                    <dd className="mt-1 text-2xl font-semibold tracking-tight">High</dd>
-                  </div>
+                  {snapshot.map((row) => (
+                    <div key={row.label}>
+                      <dt className="text-xs text-stone-400">{row.label}</dt>
+                      <dd className="mt-1 text-2xl font-semibold tracking-tight">{row.value}</dd>
+                    </div>
+                  ))}
                 </dl>
               </div>
             </RevealOnScroll>
@@ -99,11 +130,11 @@ export default function WhyChooseUs() {
             <RevealOnScroll>
               <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm">
                 <h3 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
-                  Included experience
+                  {w?.checklist_title || "Included experience"}
                 </h3>
                 <ul className="mt-4 space-y-3">
-                  {checklist.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-stone-700">
+                  {checklist.map((item, i) => (
+                    <li key={`${i}-${item}`} className="flex items-start gap-3 text-sm text-stone-700">
                       <FaCheckCircle className="mt-0.5 shrink-0 text-teal-800" aria-hidden />
                       <span>{item}</span>
                     </li>

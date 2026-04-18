@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
+import { usePublicCompany } from "@/lib/usePublicCompany";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -24,6 +25,11 @@ const MobileMenu: React.FC = () => {
   const [showContact, setShowContact] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const company = usePublicCompany();
+  const brand = useMemo(
+    () => company?.site?.navbar_brand?.trim() || company?.company_name || "Nitya Tour & Travels",
+    [company]
+  );
 
   return (
     <>
@@ -37,9 +43,9 @@ const MobileMenu: React.FC = () => {
           <FaBars className="text-xl" />
         </button>
         <div className="flex flex-1 items-center justify-center gap-2">
-          <Image src="/logo/logo.png" alt="Nitya Tour & Travels" width={40} height={40} />
-          <span className="select-none text-sm font-semibold tracking-tight text-stone-900">
-            Nitya Tour
+          <Image src="/logo/logo.png" alt={brand} width={40} height={40} />
+          <span className="max-w-[10rem] select-none truncate text-sm font-semibold tracking-tight text-stone-900">
+            {brand}
           </span>
         </div>
         <span className="w-10" aria-hidden />

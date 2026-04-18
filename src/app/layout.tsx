@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import MobileMenu from "./components/MobileMenu";
-import Navbar from "./components/Navbar";
+import SiteNav from "./components/SiteNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,11 +35,12 @@ export const metadata: Metadata = {
     "car rental Indore",
     "hotel booking Indore",
     "Indore tour operator",
-    "Indore travel agency"
+    "Indore travel agency",
   ],
   openGraph: {
     title: "Nitya Tour - Best Travel Agency in Indore | Cab Service & Tour Travels",
-    description: "Best travel agency near me in Indore. Rent cars in Indore, tour planners in Indore, tour and travels near me. Best cab service Indore with taxi service and tour package planner.",
+    description:
+      "Best travel agency near me in Indore. Rent cars in Indore, tour planners in Indore, tour and travels near me. Best cab service Indore with taxi service and tour package planner.",
     url: "https://nityatour.in",
     siteName: "Nitya Tour",
     images: [
@@ -57,7 +57,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Nitya Tour - Best Travel Agency in Indore | Cab Service & Tour Travels",
-    description: "Best travel agency near me in Indore. Rent cars in Indore, tour planners in Indore, tour and travels near me. Best cab service Indore with taxi service and tour package planner.",
+    description:
+      "Best travel agency near me in Indore. Rent cars in Indore, tour planners in Indore, tour and travels near me. Best cab service Indore with taxi service and tour package planner.",
     images: ["/Ertiga model 2024/images.jpeg"],
   },
 };
@@ -75,8 +76,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-stone-900 bg-[var(--page-bg)]`}
       >
-        <Navbar />
-        <MobileMenu />
+        <SiteNav />
         {children}
       </body>
     </html>

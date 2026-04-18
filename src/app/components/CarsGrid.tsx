@@ -4,6 +4,7 @@ import SectionHeading from "./SectionHeading";
 import { FaUserFriends, FaGasPump, FaSnowflake, FaRupeeSign, FaCheckCircle, FaCamera } from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
 import CarNameList from "./CarNameList";
+import type { SiteContent } from "@/lib/companyTypes";
 
 interface Car {
   images: string[];
@@ -38,6 +39,7 @@ interface Company {
 interface CarsGridProps {
   cars: Car[];
   company: Company;
+  fleetSection?: SiteContent["fleet_section"];
   CarImageSlider: React.ComponentType<{
     images: string[];
     folder: string;
@@ -46,14 +48,18 @@ interface CarsGridProps {
   }>;
 }
 
-export default function CarsGrid({ cars, company, CarImageSlider }: CarsGridProps) {
+export default function CarsGrid({ cars, company, fleetSection, CarImageSlider }: CarsGridProps) {
+  const fleetHeading = fleetSection?.heading || "Our fleet";
+  const fleetLead =
+    fleetSection?.lead ||
+    "Sanitised, well‑maintained cars for city rides and outstation—pick what fits your group and route.";
+
   return (
     <section id="our-cars" className="mx-auto max-w-6xl px-4 py-16 lg:px-6 lg:py-20">
       <RevealOnScroll>
-        <SectionHeading>Our fleet</SectionHeading>
+        <SectionHeading>{fleetHeading}</SectionHeading>
         <p className="mx-auto mb-12 max-w-2xl text-center text-base leading-relaxed text-stone-600 md:text-lg">
-          Sanitised, well‑maintained cars for city rides and outstation—pick what fits your group and
-          route.
+          {fleetLead}
         </p>
       </RevealOnScroll>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-3">

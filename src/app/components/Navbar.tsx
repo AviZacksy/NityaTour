@@ -2,8 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import ContactModal from "./ContactModal";
+import { usePublicCompany } from "@/lib/usePublicCompany";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -19,6 +20,11 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [showContact, setShowContact] = useState(false);
+  const company = usePublicCompany();
+  const brand = useMemo(
+    () => company?.site?.navbar_brand?.trim() || company?.company_name || "Nitya Tour & Travels",
+    [company]
+  );
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -55,10 +61,8 @@ export default function Navbar() {
               href="/"
               className="flex select-none items-center gap-3 transition-opacity hover:opacity-80"
             >
-              <Image src="/logo/logo.png" alt="Nitya Tour & Travels" width={44} height={44} />
-              <span className="text-[15px] font-semibold tracking-tight text-stone-900">
-                Nitya Tour & Travels
-              </span>
+              <Image src="/logo/logo.png" alt={brand} width={44} height={44} />
+              <span className="text-[15px] font-semibold tracking-tight text-stone-900">{brand}</span>
             </Link>
             <ul className="flex flex-wrap items-center justify-end gap-1 lg:gap-2">
               {navLinks.map((link) => (
