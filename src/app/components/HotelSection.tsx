@@ -37,7 +37,7 @@ const HotelSection: React.FC<Props> = ({ copy }) => {
 
   return (
     <section id="hotel-nitya" className={`bg-stone-900 py-24 lg:py-32 text-white `}>
-      <div className="mx-auto max-w-7xl px-4 lg:px-6">
+      <div className="mx-auto max-w-[1400px] px-4 lg:px-6">
         <RevealOnScroll>
           <div className="text-center mb-16">
             <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-xs font-semibold uppercase tracking-[0.2em] mb-4 text-[#E5D5C5]">
@@ -69,7 +69,7 @@ const HotelSection: React.FC<Props> = ({ copy }) => {
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
             {hotels.map((hotel, idx) => (
               <RevealOnScroll key={idx}>
-                <figure className="group overflow-hidden rounded-2xl bg-[#1c1c1c] border border-stone-800 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-stone-600">
+                <figure className="group overflow-hidden rounded-none bg-[#1c1c1c] border border-stone-800 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-stone-600">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
                     <Image
@@ -97,3 +97,4 @@ const HotelSection: React.FC<Props> = ({ copy }) => {
 };
 
 export default HotelSection;
+

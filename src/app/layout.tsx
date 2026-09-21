@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import StickyContactButtons from "./components/StickyContactButtons";
 import { promises as fs } from "fs";
 import path from "path";
 import "./globals.css";
@@ -83,11 +82,10 @@ export default async function RootLayout({
         <meta name="google-site-verification" content="DeiydIuvITFg-iCpH4WgVTfaxEHIqyVNoxW-_GdWuJY" />
       </head>
       <body
-        className={`${montserrat.variable} font-sans antialiased text-stone-900 bg-[var(--page-bg)] relative`}
+        className={`${montserrat.variable} font-sans font-light antialiased text-stone-900 bg-[var(--page-bg)] relative`}
       >
         <SiteNav />
         {children}
-        {companyData && <StickyContactButtons company={companyData} />}
       </body>
     </html>
   );

@@ -33,13 +33,13 @@ export default function AboutSection({ company }: AboutSectionProps) {
 
   return (
     <section className="py-20 bg-gradient-to-br from-indigo-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-4">
         <SectionHeading>About Us</SectionHeading>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
           {/* Company Info */}
           <div className="space-y-8">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-indigo-100">
+            <div className="bg-white/80 backdrop-blur-sm rounded-none p-8 shadow-xl border border-indigo-100">
               <h3 className="text-3xl font-bold text-indigo-900 mb-6">
                 {company?.company_name || "Nitya Tour & Travels"}
               </h3>
@@ -63,7 +63,7 @@ export default function AboutSection({ company }: AboutSectionProps) {
             </div>
 
             {/* Contact Info */}
-            <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-3xl p-8 shadow-xl">
+            <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-none p-8 shadow-xl">
               <h4 className="text-2xl font-bold text-indigo-900 mb-6">Get In Touch</h4>
               
               <div className="space-y-4">
@@ -113,7 +113,7 @@ export default function AboutSection({ company }: AboutSectionProps) {
 
           {/* Mission & Values */}
           <div className="space-y-8">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-indigo-100">
+            <div className="bg-white/80 backdrop-blur-sm rounded-none p-8 shadow-xl border border-indigo-100">
               <h4 className="text-2xl font-bold text-indigo-900 mb-6">Our Mission</h4>
               <p className="text-gray-700 leading-relaxed mb-6">
                 To provide exceptional car rental services with the highest standards of safety, 
@@ -122,22 +122,22 @@ export default function AboutSection({ company }: AboutSectionProps) {
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white p-4 rounded-2xl">
+                <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white p-4 rounded-none">
                   <h5 className="font-bold mb-2">Safety First</h5>
                   <p className="text-sm opacity-90">All vehicles undergo regular safety checks</p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-indigo-900 p-4 rounded-2xl">
+                <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-indigo-900 p-4 rounded-none">
                   <h5 className="font-bold mb-2">Best Rates</h5>
                   <p className="text-sm opacity-90">Competitive pricing with no hidden charges</p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-2xl">
+                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-none">
                   <h5 className="font-bold mb-2">24/7 Support</h5>
                   <p className="text-sm opacity-90">Round the clock customer assistance</p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-4 rounded-2xl">
+                <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-4 rounded-none">
                   <h5 className="font-bold mb-2">Wide Selection</h5>
                   <p className="text-sm opacity-90">Diverse fleet to meet all your needs</p>
                 </div>
@@ -145,7 +145,7 @@ export default function AboutSection({ company }: AboutSectionProps) {
             </div>
 
             {/* Why Choose Us */}
-            <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-3xl p-8 shadow-xl text-white">
+            <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-none p-8 shadow-xl text-white">
               <h4 className="text-2xl font-bold mb-6">Why Choose Us?</h4>
               
               <div className="space-y-4">
@@ -186,3 +186,4 @@ export default function AboutSection({ company }: AboutSectionProps) {
     </section>
   );
 } 
+

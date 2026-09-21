@@ -21,7 +21,7 @@ export default function CarImageSlider({ images, folder, alt, overlayLabel }: Ca
 
   if (!images || images.length === 0)
     return (
-      <div className="flex h-40 w-full items-center justify-center rounded-lg bg-stone-100 text-sm text-stone-500">
+      <div className="flex h-40 w-full items-center justify-center rounded-none bg-stone-100 text-sm text-stone-500">
         No image
       </div>
     );
@@ -109,7 +109,7 @@ export default function CarImageSlider({ images, folder, alt, overlayLabel }: Ca
         {overlayLabel && (
           <>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-16 border-t border-stone-200/60 bg-white/85 backdrop-blur-sm md:h-20" />
-            <div className="pointer-events-none absolute bottom-4 left-1/2 z-30 -translate-x-1/2 rounded-md border border-white/30 bg-stone-900/70 px-3 py-1 text-xs font-semibold tracking-wide text-white backdrop-blur">
+            <div className="pointer-events-none absolute bottom-4 left-1/2 z-30 -translate-x-1/2 rounded-none border border-white/30 bg-stone-900/70 px-3 py-1 text-xs font-semibold tracking-wide text-white backdrop-blur">
               {overlayLabel}
             </div>
           </>

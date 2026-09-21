@@ -47,13 +47,13 @@ interface AllCarsProps {
 export default function AllCars({ cars, company, CarImageSlider }: AllCarsProps) {
   return (
     <>
-      <section className="max-w-7xl mx-auto px-4 mb-20 py-12 rounded-3xl bg-white shadow-xl">
+      <section className="max-w-[1400px] mx-auto px-4 mb-20 py-12 rounded-none bg-white shadow-xl">
         <SectionHeading>Rent Cars in Indore - All Cars</SectionHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
           {cars.map((car: Car, idx: number) => (
             <div
               key={idx}
-              className="relative bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-indigo-100 flex flex-col items-center p-5 group hover:shadow-yellow-300 hover:scale-[1.04] transition-all duration-300 cursor-pointer overflow-hidden animate-fadeIn"
+              className="relative bg-white/90 backdrop-blur-md rounded-none shadow-2xl border-2 border-indigo-100 flex flex-col items-center p-5 group hover:shadow-yellow-300 hover:scale-[1.04] transition-all duration-300 cursor-pointer overflow-hidden animate-fadeIn"
             >
               <div className="w-full flex justify-center">
                 <CarImageSlider
@@ -94,11 +94,12 @@ export default function AllCars({ cars, company, CarImageSlider }: AllCarsProps)
           ))}
         </div>
       </section>
-      <div className="max-w-7xl mx-auto px-4 pb-8 -mt-8">
-        <div className="text-xs text-gray-500 text-center bg-yellow-50 border border-yellow-200 rounded-xl py-3 mt-4">
+      <div className="max-w-[1400px] mx-auto px-4 pb-8 -mt-8">
+        <div className="text-xs text-gray-500 text-center bg-yellow-50 border border-yellow-200 rounded-none py-3 mt-4">
           Insurance Claim (insurance charges will be extra) - Best Cab Service Indore
         </div>
       </div>
     </>
   );
 } 
+
