@@ -133,13 +133,18 @@ export default function CarsGrid({ cars, company, fleetSection }: CarsGridProps)
                     </span>
                   </div>
 
-                  {/* Price */}
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-[20px] font-bold text-[#0d2a45]">
-                      ₹{car.per_day_charge || "2,500"}
-                    </span>
-                    <span className="text-[14px] text-gray-500">
-                      per day
+                  {/* Price & Action */}
+                  <div className="flex items-center justify-between mt-auto pt-2">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[20px] font-bold text-[#0d2a45]">
+                        ₹{car.per_day_charge || "2,500"}
+                      </span>
+                      <span className="text-[14px] text-gray-500">
+                        per day
+                      </span>
+                    </div>
+                    <span className="text-[12px] font-bold text-white bg-[#f5a623] px-4 py-2 hover:bg-[#e0941d] transition-colors shadow-sm">
+                      Book Now
                     </span>
                   </div>
                 </a>

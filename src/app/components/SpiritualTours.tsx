@@ -27,7 +27,7 @@ export default function SpiritualTours() {
                 const contactBtn = document.querySelector('a[href="#contact"]') as HTMLAnchorElement;
                 if(contactBtn) contactBtn.click();
             }} className="shrink-0 bg-white border-2 border-[#d32f2f] text-[#d32f2f] hover:bg-[#d32f2f] hover:text-white font-bold py-2.5 px-6 rounded-full transition-colors">
-              Explore All Yatras
+              Book Now
             </button>
           </div>
 

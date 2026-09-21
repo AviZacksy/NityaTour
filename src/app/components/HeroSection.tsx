@@ -28,7 +28,7 @@ export default function HeroSection() {
       </div>
 
       {/* Main Hero Text (Centered) */}
-      <div className="relative z-10 w-full px-4 sm:px-6 flex flex-col items-center text-center -mt-16">
+      <div className="relative z-10 w-full px-4 sm:px-6 flex flex-col items-center text-center">
         <RevealOnScroll>
           <div className="text-white">
             <span className="block text-sm md:text-base font-bold uppercase tracking-[0.3em] mb-4 text-white/90 drop-shadow-md">
@@ -42,7 +42,7 @@ export default function HeroSection() {
       </div>
 
       {/* Voyage Style Search Bar */}
-      <div className="absolute -bottom-10 md:bottom-32 left-0 w-full z-30 px-4 md:px-8">
+      <div className="relative z-30 w-full px-4 md:px-8 mt-8 md:mt-12">
         <div className="max-w-[1400px] mx-auto bg-white shadow-2xl flex flex-col lg:flex-row rounded-none overflow-hidden lg:rounded-none lg:overflow-visible">
           
           {/* Left Text Block */}

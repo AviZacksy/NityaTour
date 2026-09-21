@@ -37,11 +37,11 @@ const MobileMenu: React.FC = () => {
       <div className="fixed left-0 top-0 z-50 flex h-20 w-full items-center justify-between border-b border-gray-100 bg-white px-4 md:hidden">
         <button
           type="button"
-          className="p-2 text-[#ef4056]"
+          className="p-3 text-[#ef4056] relative z-50 cursor-pointer"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          {open ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+          {open ? <FaTimes className="text-3xl" /> : <FaBars className="text-3xl" />}
         </button>
         <div className="flex flex-1 items-center justify-center -ml-6">
           <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>

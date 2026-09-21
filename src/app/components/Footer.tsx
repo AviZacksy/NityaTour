@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-[#222222] text-[#cccccc] font-sans">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Column 1: Brand & Contact Info */}
           <div className="space-y-6">
@@ -53,11 +53,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: Latest News (or Services) */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-8">Latest News</h4>
-            <p className="text-[14px]">No posts were found.</p>
-          </div>
 
           {/* Column 3: Gallery */}
           <div>
@@ -76,11 +71,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Follow Us */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-8">Follow Us</h4>
-            <p className="text-[14px]">Couldn&apos;t connect with Twitter</p>
-          </div>
 
         </div>
       </div>
@@ -89,17 +79,8 @@ export default function Footer() {
       <div className="border-t border-[#333333] relative">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[13px] text-[#cccccc]">
-            &copy; 2026 Nitya Tour, All Rights Reserved
+            &copy; 2026 Nitya Tours and Travels, All Rights Reserved
           </p>
-          
-          <div className="flex items-center gap-5 text-white pr-16 md:pr-0">
-            <a href="#" className="hover:text-gray-400 transition-colors"><FaTwitter size={14} /></a>
-            <a href="#" className="hover:text-gray-400 transition-colors"><FaFacebookF size={14} /></a>
-            <a href="#" className="hover:text-gray-400 transition-colors"><FaLinkedinIn size={14} /></a>
-            <a href="#" className="hover:text-gray-400 transition-colors"><FaPinterestP size={14} /></a>
-            <a href="#" className="hover:text-gray-400 transition-colors"><FaVimeoV size={14} /></a>
-            <a href="#" className="hover:text-gray-400 transition-colors"><FaDribbble size={14} /></a>
-          </div>
         </div>
 
         {/* Scroll to top button (Voyage style) */}

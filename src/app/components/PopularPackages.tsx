@@ -113,7 +113,7 @@ export default function PopularPackages() {
           <div className="mt-8 flex justify-center md:hidden">
             <button 
               onClick={() => setShowAll(!showAll)}
-              className="px-8 py-3.5 bg-white border border-stone-300 text-stone-800 font-bold text-[13px] tracking-widest uppercase shadow-sm active:bg-stone-100 rounded-none"
+              className="px-8 py-3.5 bg-[#f5a623] border border-[#f5a623] text-white hover:bg-[#e0941d] font-bold text-[13px] tracking-widest uppercase shadow-sm rounded-none transition-colors"
             >
               {showAll ? "Show Less" : "View All Packages"}
             </button>

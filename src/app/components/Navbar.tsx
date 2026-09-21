@@ -90,14 +90,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Right side: Social Icons */}
-            <div className="flex items-center gap-4">
-              <a href="#" className="hover:opacity-80 transition-opacity"><FaFacebookF /></a>
-              <a href="#" className="hover:opacity-80 transition-opacity"><FaLinkedinIn /></a>
-              <a href="#" className="hover:opacity-80 transition-opacity"><FaTripadvisor /></a>
-              <a href="#" className="hover:opacity-80 transition-opacity"><FaTwitter /></a>
-              <a href="#" className="hover:opacity-80 transition-opacity"><FaInstagram /></a>
-            </div>
+
           </div>
         </div>
 
