@@ -9,11 +9,6 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaWhatsapp,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-  FaInstagram,
-  FaTripadvisor,
   FaChevronDown
 } from "react-icons/fa";
 

@@ -1,5 +1,5 @@
 "use client";
-import { FaPhone, FaFacebookF, FaTwitter, FaMapMarkerAlt, FaClock, FaLinkedinIn, FaPinterestP, FaVimeoV, FaDribbble, FaChevronUp } from "react-icons/fa";
+import { FaPhone, FaMapMarkerAlt, FaClock, FaChevronUp } from "react-icons/fa";
 import { usePublicCompany } from "@/lib/usePublicCompany";
 import Image from "next/image";
 

@@ -82,28 +82,11 @@ export default function PopularPackages() {
                 <div className="p-6 md:p-8">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="font-bold text-[22px] text-gray-900">{pkg.dest} Tour</h3>
-                    <div className="text-[20px] font-bold text-[#3db1a4]">{pkg.price}</div>
                   </div>
                   
-                  <div className="flex items-center text-[13px] text-gray-500 mb-5 gap-1.5">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span>9.3 Superb</span>
-                  </div>
-                  
-                  <p className="text-[14px] text-gray-500 mb-8 line-clamp-2 leading-relaxed">
+                  <p className="text-[14px] text-gray-500 line-clamp-2 leading-relaxed">
                     Explore the beautiful destinations of {pkg.dest} with our premium tour packages. Perfect for families, couples, and group adventures.
                   </p>
-                  
-                  <div className="border-t border-gray-200 pt-5 flex items-center justify-start gap-8 text-[13px] text-gray-400">
-                    <div className="flex items-center gap-2">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                      {pkg.duration}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                      12+
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
