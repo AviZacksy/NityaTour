@@ -34,7 +34,7 @@ export default function Testimonials() {
           <div className="text-center mb-16">
             <span className="text-[#1f73b7] font-bold tracking-widest text-xs uppercase mb-2 block">Testimonials</span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Read about the experiences of our happy travelers.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">Don&apos;t just take our word for it. Read about the experiences of our happy travelers.</p>
           </div>
 
           {/* Added custom scrollbar hiding class via arbitrary variants or style */}
@@ -62,7 +62,7 @@ export default function Testimonials() {
                     {[...Array(t.rating)].map((_, i) => <FaStar key={i} />)}
                   </div>
                   <FaQuoteLeft className="text-gray-200 text-3xl mx-auto mb-4" />
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">&quot;{t.text}&quot;</p>
                   <h4 className="font-bold text-gray-900">{t.name}</h4>
                   <p className="text-xs text-gray-500">{t.role}</p>
                 </div>

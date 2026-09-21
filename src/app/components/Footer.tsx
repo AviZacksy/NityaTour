@@ -1,12 +1,12 @@
 "use client";
-import { FaPhone, FaWhatsapp, FaEnvelope, FaFacebookF, FaInstagram, FaTwitter, FaMapMarkerAlt, FaClock, FaLinkedinIn, FaPinterestP, FaVimeoV, FaDribbble, FaChevronUp } from "react-icons/fa";
+import { FaPhone, FaFacebookF, FaTwitter, FaMapMarkerAlt, FaClock, FaLinkedinIn, FaPinterestP, FaVimeoV, FaDribbble, FaChevronUp } from "react-icons/fa";
 import { usePublicCompany } from "@/lib/usePublicCompany";
 import Image from "next/image";
 
 export default function Footer() {
   const company = usePublicCompany();
   
-  const phone = company?.contact?.phone || company?.contact_numbers?.[0] || "+91-9968488791";
+  const phone = company?.contact?.phone || "+91-9968488791";
   const address = company?.location || "184 Main Street West Victoria 8007";
 
   const galleryImages = [
@@ -79,7 +79,7 @@ export default function Footer() {
           {/* Column 4: Follow Us */}
           <div>
             <h4 className="text-lg font-bold text-white mb-8">Follow Us</h4>
-            <p className="text-[14px]">Couldn't connect with Twitter</p>
+            <p className="text-[14px]">Couldn&apos;t connect with Twitter</p>
           </div>
 
         </div>

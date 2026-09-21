@@ -58,7 +58,7 @@ const MobileMenu: React.FC = () => {
       >
         <nav>
           <ul className="flex flex-col">
-            {navLinks.map((link, idx) => (
+            {navLinks.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}

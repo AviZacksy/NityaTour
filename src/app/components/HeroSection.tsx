@@ -1,23 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RevealOnScroll from "./RevealOnScroll";
-import type { Company } from "@/lib/companyTypes";
-import { FaCalendarAlt, FaGlobe, FaRocket } from "react-icons/fa";
+import { FaGlobe, FaRocket } from "react-icons/fa";
 
-type Props = {
-  company?: Company | null;
-};
-
-export default function HeroSection({ company: companyProp }: Props) {
-  const [fetched, setFetched] = useState<Company | null>(null);
-  const company = companyProp !== undefined ? companyProp : fetched;
-
-  useEffect(() => {
-    if (companyProp !== undefined) return;
-    fetch("/data/data.json")
-      .then((res) => res.json())
-      .then((data) => setFetched(data as Company));
-  }, [companyProp]);
+export default function HeroSection() {
 
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");

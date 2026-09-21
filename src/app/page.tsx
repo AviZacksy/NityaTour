@@ -12,8 +12,6 @@ import Testimonials from "./components/Testimonials";
 import GallerySection from "./components/GallerySection";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
-
-import CarImageSlider from "./components/CarImageSlider";
 import type { Company } from "@/lib/companyTypes";
 import { DEFAULT_CAR_IMAGES, resolveFleetFolders } from "@/lib/fleetConfig";
 
@@ -91,7 +89,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen font-sans overflow-x-hidden bg-white">
       {/* 1. Hero Section with Search Box */}
-      <HeroSection company={company} />
+      <HeroSection />
 
       {/* 2. Quick Services Nav Cards */}
       <QuickServices />
@@ -109,7 +107,6 @@ export default function Home() {
             cars={cars}
             company={company}
             fleetSection={company.site?.fleet_section}
-            CarImageSlider={CarImageSlider}
           />
         )}
       </Suspense>

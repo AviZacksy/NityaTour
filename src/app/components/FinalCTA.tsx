@@ -14,10 +14,10 @@ export default function FinalCTA() {
         <RevealOnScroll>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Wherever You Want To Go, <br className="hidden md:block" />
-            <span className="text-[#1f73b7]">We'll Help You Get There.</span>
+            <span className="text-[#1f73b7]">We&apos;ll Help You Get There.</span>
           </h2>
           <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
-            Ready to start your next adventure? Get in touch with us today and let's craft the perfect itinerary for you.
+            Ready to start your next adventure? Get in touch with us today and let&apos;s craft the perfect itinerary for you.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button onClick={handleContactClick} className="bg-[#d32f2f] hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full transition-colors shadow-lg text-lg">

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import { promises as fs } from "fs";
-import path from "path";
 import "./globals.css";
 import SiteNav from "./components/SiteNav";
 
@@ -67,14 +65,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let companyData = null;
-  try {
-    const filePath = path.join(process.cwd(), "public", "data", "data.json");
-    const fileContents = await fs.readFile(filePath, "utf8");
-    companyData = JSON.parse(fileContents);
-  } catch (error) {
-    console.error("Error reading company data:", error);
-  }
 
   return (
     <html lang="en">

@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import SectionHeading from "./SectionHeading";
-import { FaUserFriends, FaGasPump, FaSnowflake, FaRupeeSign, FaCheckCircle, FaCamera, FaWhatsapp } from "react-icons/fa";
+import { FaUserFriends } from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
-import CarNameList from "./CarNameList";
 import type { SiteContent } from "@/lib/companyTypes";
 
 
@@ -44,16 +42,9 @@ interface CarsGridProps {
   cars: Car[];
   company: Company;
   fleetSection?: SiteContent["fleet_section"];
-  CarImageSlider: React.ComponentType<{
-    images: string[];
-    folder: string;
-    alt: string;
-    overlayLabel?: string;
-  }>;
 }
 
-export default function CarsGrid({ cars, company, fleetSection, CarImageSlider }: CarsGridProps) {
-  const fleetHeading = fleetSection?.heading || "Our Luxury Fleet";
+export default function CarsGrid({ cars, company, fleetSection }: CarsGridProps) {
   const fleetLead =
     fleetSection?.lead ||
     "Sanitised, well-maintained vehicles for city rides and outstation journeys. Travel in ultimate comfort and style.";

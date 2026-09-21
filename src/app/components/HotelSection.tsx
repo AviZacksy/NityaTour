@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SectionHeading from "./SectionHeading";
 import RevealOnScroll from "./RevealOnScroll";
 import Image from "next/image";
 import type { SiteContent } from "@/lib/companyTypes";

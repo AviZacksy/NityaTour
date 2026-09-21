@@ -27,9 +27,9 @@ export default function Navbar() {
     [company]
   );
 
-  const phone = company?.contact?.phone || company?.contact_numbers?.[0] || "+91-9968488791";
-  const email = company?.contact?.email || company?.contact_email || "info@nityatour.com";
-  const whatsapp = company?.contact?.whatsapp || company?.contact_whatsapp || "+91-9958221107";
+  const phone = company?.contact?.phone || "+91-9968488791";
+  const email = company?.contact?.email || "info@nityatour.com";
+  const whatsapp = company?.contact?.whatsapp || "+91-9958221107";
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
