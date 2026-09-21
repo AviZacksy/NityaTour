@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import StickyContactButtons from "./components/StickyContactButtons";
+import { promises as fs } from "fs";
+import path from "path";
 import "./globals.css";
 import SiteNav from "./components/SiteNav";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -63,21 +61,33 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+// ... (keep metadata and fonts)
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let companyData = null;
+  try {
+    const filePath = path.join(process.cwd(), "public", "data", "data.json");
+    const fileContents = await fs.readFile(filePath, "utf8");
+    companyData = JSON.parse(fileContents);
+  } catch (error) {
+    console.error("Error reading company data:", error);
+  }
+
   return (
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="DeiydIuvITFg-iCpH4WgVTfaxEHIqyVNoxW-_GdWuJY" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased text-stone-900 bg-[var(--page-bg)]`}
+        className={`${montserrat.variable} font-sans antialiased text-stone-900 bg-[var(--page-bg)] relative`}
       >
         <SiteNav />
         {children}
+        {companyData && <StickyContactButtons company={companyData} />}
       </body>
     </html>
   );

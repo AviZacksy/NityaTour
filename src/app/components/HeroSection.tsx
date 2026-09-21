@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+
 import {
   FaShieldAlt,
   FaClock,
@@ -12,6 +13,9 @@ import {
 import RevealOnScroll from "./RevealOnScroll";
 import type { Company } from "@/lib/companyTypes";
 
+
+
+
 const defaultPillars = [
   { title: "Safety first", body: "Regular checks and verified drivers." },
   { title: "Clear pricing", body: "Straightforward rates, no surprises." },
@@ -20,7 +24,6 @@ const defaultPillars = [
 ];
 
 type Props = {
-  /** When set, skips fetching `/data/data.json` (homepage passes loaded company). */
   company?: Company | null;
 };
 
@@ -45,93 +48,94 @@ export default function HeroSection({ company: companyProp }: Props) {
   const hc = company?.site?.hero_cards;
   const lines = hc?.at_a_glance_lines ?? [];
   const glanceLine1 =
-    lines[0]?.trim() ||
-    company?.location ||
-    "Indore, Madhya Pradesh";
+    lines[0]?.trim() || company?.location || "Indore, Madhya Pradesh";
   const glanceLine2 =
     lines[1]?.trim() ||
-    (company?.service_area ? `Service area: ${company.service_area}` : "Service area: All India");
+    (company?.service_area
+      ? `Service area: ${company.service_area}`
+      : "Service area: All India");
   const glanceLine3 =
     lines[2]?.trim() || "Bookings & assistance when you need them";
 
   const pillars = hc?.pillars?.length ? hc.pillars : defaultPillars;
 
   return (
-    <section className="relative w-full border-b border-stone-200/80 bg-[var(--surface)] pt-24 pb-16 md:pt-28 md:pb-20">
-      <div className="mx-auto max-w-6xl px-4 lg:px-6">
+    <section className={`relative w-full `}>
+      {/* Stunning Background Image */}
+      <div className="absolute inset-0 w-full h-[120%] lg:h-[110%] min-h-[800px] z-0 overflow-hidden bg-stone-900">
+        <img
+          src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=2000&auto=format&fit=crop"
+          alt="Majestic Travel Background"
+          className="w-full h-full object-cover object-center scale-105"
+        />
+        {/* Gradients for readability */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 pt-32 pb-24 md:pb-48 lg:pt-40 lg:pb-56">
         <RevealOnScroll>
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-stone-500">
-                {company?.hero?.kicker || "Indore · Cab · Tours · Hotels"}
-              </p>
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-stone-900 sm:text-5xl md:text-[3.25rem] md:leading-[1.1]">
-                {company?.hero?.headline || company?.company_name || "Nitya Tour & Travels"}
-              </h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-stone-600">
-                {company?.hero?.lead ||
-                  "Reliable cars and tour planning from Indore—local trips, outstation, and packages with a calm, professional team."}
-              </p>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-stone-500">
-                {company?.hero?.description ||
-                  "Travel agency in Indore: car rental, taxi, tour packages, and hotel support—serving customers across India with well‑maintained vehicles."}
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a
-                  href={company?.hero?.primary_cta?.href || "#our-cars"}
-                  className="inline-flex items-center justify-center rounded-md bg-stone-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-stone-800"
-                >
-                  {company?.hero?.primary_cta?.label || "View fleet"}
-                </a>
-                <a
-                  href={
-                    company?.hero?.secondary_cta?.href?.trim()
-                      ? company.hero.secondary_cta.href
-                      : `https://wa.me/${company?.contact?.whatsapp || "8435067145"}`
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-transparent px-5 py-3 text-sm font-medium text-stone-800 transition-colors hover:border-stone-400 hover:bg-stone-50"
-                >
-                  {company?.hero?.secondary_cta?.label || "WhatsApp us"}
-                </a>
-              </div>
-            </div>
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative flex w-full max-w-sm flex-col items-center rounded-2xl border border-stone-200 bg-[var(--page-bg)] p-8">
-                <Image
-                  src={company?.hero?.logo_src || "/logo/logo.png"}
-                  alt={company?.hero?.logo_alt || "Nitya Tour & Travels logo"}
-                  width={160}
-                  height={160}
-                  className="opacity-95"
-                />
-                <p className="mt-4 text-center text-sm text-stone-500">
-                  {company?.hero?.card_note ||
-                    "Serving Indore and pan‑India travel with care and consistency."}
-                </p>
-              </div>
+          <div className="max-w-3xl text-white">
+            <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] mb-6">
+              {company?.hero?.kicker || "Indore · Cab · Tours · Hotels"}
+            </span>
+            <h1
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] leading-[1.1] font-bold tracking-tight mb-6 drop-shadow-lg`}
+            >
+              {company?.hero?.headline || company?.company_name || "Nitya Tour & Travels"}
+            </h1>
+            <p className="max-w-2xl text-lg md:text-xl font-medium leading-relaxed text-white/90 drop-shadow-md mb-8">
+              {company?.hero?.lead ||
+                "Reliable cars and tour planning from Indore—local trips, outstation, and packages with a calm, professional team."}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <a
+                href={company?.hero?.primary_cta?.href || "#our-cars"}
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-bold text-black transition-all hover:bg-gray-100 hover:scale-105 shadow-xl"
+              >
+                {company?.hero?.primary_cta?.label || "Explore Our Fleet"}
+              </a>
+              <a
+                href={
+                  company?.hero?.secondary_cta?.href?.trim()
+                    ? company.hero.secondary_cta.href
+                    : `https://wa.me/${company?.contact?.whatsapp || "8435067145"}`
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border-2 border-white/80 bg-black/30 backdrop-blur-md px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-white/20 hover:border-white shadow-xl"
+              >
+                {company?.hero?.secondary_cta?.label || "WhatsApp Us"}
+              </a>
             </div>
           </div>
         </RevealOnScroll>
+      </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+      {/* Floating Cards overlapping the image on desktop, stacked on mobile */}
+      <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 mt-8 md:-mt-32 lg:-mt-40 pb-16">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <RevealOnScroll>
-            <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm">
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
-                {hc?.at_a_glance_title || "At a glance"}
-              </h2>
-              <ul className="mt-5 space-y-4 text-stone-700">
-                <li className="flex gap-3">
-                  <FaMapMarkerAlt className="mt-0.5 shrink-0 text-teal-700" aria-hidden />
+            <div className="h-full rounded-2xl bg-white/95 backdrop-blur-xl p-8 shadow-2xl border border-white/20 transition-transform hover:-translate-y-1">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-[#1c1c1c] flex items-center justify-center text-white">
+                  <FaMapMarkerAlt size={16} />
+                </div>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-[#1c1c1c]">
+                  {hc?.at_a_glance_title || "At a glance"}
+                </h2>
+              </div>
+              <ul className="space-y-4 text-gray-700 font-medium">
+                <li className="flex gap-3 items-start">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F5A623] mt-2 shrink-0" />
                   <span>{glanceLine1}</span>
                 </li>
-                <li className="flex gap-3">
-                  <FaShieldAlt className="mt-0.5 shrink-0 text-teal-700" aria-hidden />
+                <li className="flex gap-3 items-start">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F5A623] mt-2 shrink-0" />
                   <span>{glanceLine2}</span>
                 </li>
-                <li className="flex gap-3">
-                  <FaClock className="mt-0.5 shrink-0 text-teal-700" aria-hidden />
+                <li className="flex gap-3 items-start">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F5A623] mt-2 shrink-0" />
                   <span>{glanceLine3}</span>
                 </li>
               </ul>
@@ -139,32 +143,40 @@ export default function HeroSection({ company: companyProp }: Props) {
           </RevealOnScroll>
 
           <RevealOnScroll>
-            <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm">
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
-                {hc?.contact_card_title || "Contact"}
-              </h2>
-              <div className="mt-5 space-y-3 text-sm">
-                <a
+            <div className="h-full rounded-2xl bg-white/95 backdrop-blur-xl p-8 shadow-2xl border border-white/20 transition-transform hover:-translate-y-1">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-[#F5A623] flex items-center justify-center text-white">
+                  <FaPhone size={16} />
+                </div>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-[#1c1c1c]">
+                  {hc?.contact_card_title || "Contact Us"}
+                </h2>
+              </div>
+              <div className="space-y-4 text-sm font-medium">
+                  <a
                   href={`tel:${company?.contact?.phone || "8435067145"}`}
-                  className="flex items-center gap-3 rounded-md py-1 text-stone-800 transition-colors hover:text-teal-800"
+                  className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 rounded-xl bg-gray-50 p-4 transition-colors hover:bg-gray-100 text-gray-900"
                 >
-                  <FaPhone className="text-stone-400" aria-hidden />
-                  <span className="font-medium">
+                  <div className="flex items-center gap-3">
+                    <FaPhone className="text-[#F5A623] shrink-0" size={18} />
+                    <span className="text-[14px] font-bold">Call Us</span>
+                  </div>
+                  <span className="text-[14px] sm:ml-auto">
                     {formatPhoneDisplay(company?.contact?.phone || "8435067145")}
                     {(company?.contact?.phone_alt || "8269058399") && (
-                      <>
+                      <span className="hidden sm:inline">
                         {" "}
                         / {formatPhoneDisplay(company?.contact?.phone_alt || "8269058399")}
-                      </>
+                      </span>
                     )}
                   </span>
                 </a>
                 <a
                   href={`mailto:${company?.contact?.email || "mynityatravels@gmail.com"}`}
-                  className="flex items-center gap-3 rounded-md py-1 text-stone-800 transition-colors hover:text-teal-800"
+                  className="flex items-center gap-3 sm:gap-4 rounded-xl bg-gray-50 p-4 transition-colors hover:bg-gray-100 text-gray-900 overflow-hidden"
                 >
-                  <FaEnvelope className="text-stone-400" aria-hidden />
-                  <span className="break-all font-medium">
+                  <FaEnvelope className="text-[#F5A623] shrink-0" size={18} />
+                  <span className="truncate text-[14px]">
                     {company?.contact?.email || "mynityatravels@gmail.com"}
                   </span>
                 </a>
@@ -173,10 +185,10 @@ export default function HeroSection({ company: companyProp }: Props) {
                     href={company.social_media.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 rounded-md py-1 text-stone-800 transition-colors hover:text-teal-800"
+                    className="flex items-center gap-4 rounded-xl bg-gray-50 p-4 transition-colors hover:bg-gray-100 text-gray-900"
                   >
-                    <FaInstagram className="text-stone-400" aria-hidden />
-                    <span className="font-medium">Instagram</span>
+                    <FaInstagram className="text-[#F5A623]" size={18} />
+                    <span className="text-[15px]">Instagram</span>
                   </a>
                 )}
               </div>
@@ -184,19 +196,27 @@ export default function HeroSection({ company: companyProp }: Props) {
           </RevealOnScroll>
 
           <RevealOnScroll>
-            <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm">
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
-                {hc?.how_we_work_title || "How we work"}
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-stone-600">
+            <div className="h-full rounded-2xl bg-[#1c1c1c] p-8 shadow-2xl border border-gray-800 transition-transform hover:-translate-y-1 text-white">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white">
+                  <FaShieldAlt size={16} />
+                </div>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-white/90">
+                  {hc?.how_we_work_title || "How we work"}
+                </h2>
+              </div>
+              <p className="text-sm leading-relaxed text-gray-400 mb-6 font-medium">
                 {hc?.how_we_work_intro ||
                   "We focus on punctual pickups, clean vehicles, and courteous drivers—whether you need a day in the city or a longer itinerary."}
               </p>
-              <ul className="mt-5 space-y-3">
-                {pillars.map((p) => (
-                  <li key={p.title} className="border-t border-stone-100 pt-3 first:border-0 first:pt-0">
-                    <p className="text-sm font-medium text-stone-900">{p.title}</p>
-                    <p className="mt-1 text-sm text-stone-600">{p.body}</p>
+              <ul className="space-y-4">
+                {pillars.slice(0, 3).map((p) => (
+                  <li key={p.title} className="flex gap-4 items-start">
+                    <div className="mt-1 bg-white/20 w-1.5 h-1.5 rounded-full shrink-0" />
+                    <div>
+                      <p className="text-[15px] font-bold text-white/95">{p.title}</p>
+                      <p className="mt-0.5 text-[13px] text-gray-400 font-medium leading-relaxed">{p.body}</p>
+                    </div>
                   </li>
                 ))}
               </ul>

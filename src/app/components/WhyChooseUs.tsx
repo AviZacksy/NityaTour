@@ -2,8 +2,11 @@
 import type { IconType } from "react-icons";
 import { FaShieldAlt, FaRupeeSign, FaGlobeAsia, FaHeadset, FaCheckCircle } from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
-import SectionHeading from "./SectionHeading";
 import type { SiteContent, WhyStrengthIcon } from "@/lib/companyTypes";
+
+
+
+
 
 const iconMap: Record<WhyStrengthIcon, IconType> = {
   shield: FaShieldAlt,
@@ -28,13 +31,13 @@ const defaultStrengths: {
     key: "rupee",
     icon: FaRupeeSign,
     title: "Fair rates",
-    body: "Clear quotations and billing—no last‑minute confusion on common routes.",
+    body: "Clear quotations and billing—no last-minute confusion on common routes.",
   },
   {
     key: "globe",
     icon: FaGlobeAsia,
-    title: "Pan‑India",
-    body: "Local, outstation, and multi‑day itineraries planned with practical routing.",
+    title: "Pan-India",
+    body: "Local, outstation, and multi-day itineraries planned with practical routing.",
   },
   {
     key: "headset",
@@ -45,7 +48,7 @@ const defaultStrengths: {
 ];
 
 const defaultChecklist = [
-  "Well‑maintained vehicles",
+  "Well-maintained vehicles",
   "Professional drivers",
   "Flexible booking options",
   "GPS tracking on trips",
@@ -78,31 +81,39 @@ export default function WhyChooseUs({ site }: Props) {
   const snapshot = w?.snapshot?.length ? w.snapshot : defaultSnapshot;
 
   return (
-    <section id="why-choose-us" className="py-16 lg:py-20">
-      <div className="mx-auto max-w-6xl px-4 lg:px-6">
+    <section id="why-choose-us" className={`relative bg-[#FDFDF9] py-24 lg:py-32 `}>
+      <div className="mx-auto max-w-7xl px-4 lg:px-6 relative z-10">
         <RevealOnScroll>
-          <SectionHeading>{w?.heading || "Why Nitya Tour"}</SectionHeading>
-          <p className="mx-auto -mt-4 mb-12 max-w-2xl text-center text-base text-stone-600">
-            {w?.lead ||
-              "A travel partner in Indore that keeps things simple: safe rides, honest pricing, and dependable execution."}
-          </p>
+          <div className="text-center mb-16">
+            <span className="inline-block py-1 px-3 rounded-full bg-stone-100 border border-stone-200 text-xs font-semibold uppercase tracking-[0.2em] mb-4 text-[#F5A623]">
+              Experience Excellence
+            </span>
+            <h2 className={`text-4xl md:text-5xl font-bold text-stone-900 mb-6 tracking-tight`}>
+              {w?.heading || "Why Choose Nitya Tour"}
+            </h2>
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-stone-600 md:text-lg font-medium">
+              {w?.lead ||
+                "A travel partner in Indore that keeps things simple: safe rides, honest pricing, and dependable execution."}
+            </p>
+          </div>
         </RevealOnScroll>
 
         <div className="grid gap-8 lg:grid-cols-3">
           <RevealOnScroll>
-            <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm lg:col-span-2">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
+            <div className="h-full rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-stone-100 transition-all hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] lg:col-span-2">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-[#1c1c1c] mb-8 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-[#F5A623]" />
                 {w?.strengths_title || "What sets us apart"}
               </h3>
-              <ul className="mt-6 space-y-6">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
                 {strengthsFromConfig.map(({ Icon, title, body, key }) => (
-                  <li key={key} className="flex gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-stone-50 text-teal-800">
-                      <Icon className="text-lg" aria-hidden />
+                  <li key={key} className="flex gap-5">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-stone-50 border border-stone-100 text-[#F5A623] shadow-sm">
+                      <Icon className="text-xl" aria-hidden />
                     </span>
                     <div>
-                      <p className="font-medium text-stone-900">{title}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-stone-600">{body}</p>
+                      <p className={`text-xl font-bold text-stone-900 mb-2`}>{title}</p>
+                      <p className="text-[15px] leading-relaxed text-stone-600 font-medium">{body}</p>
                     </div>
                   </li>
                 ))}
@@ -112,15 +123,17 @@ export default function WhyChooseUs({ site }: Props) {
 
           <div className="flex flex-col gap-8">
             <RevealOnScroll>
-              <div className="rounded-xl border border-stone-200 bg-stone-900 p-6 text-stone-50 shadow-sm">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-stone-400">
+              <div className="rounded-2xl border border-stone-800 bg-[#1c1c1c] p-8 text-white shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full pointer-events-none" />
+                <h3 className="text-sm font-bold uppercase tracking-widest text-white/80 mb-8 flex items-center gap-3">
+                  <span className="w-8 h-[1px] bg-[#F5A623]" />
                   {w?.snapshot_title || "Snapshot"}
                 </h3>
-                <dl className="mt-6 grid grid-cols-2 gap-6">
+                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-6 relative z-10">
                   {snapshot.map((row) => (
                     <div key={row.label}>
-                      <dt className="text-xs text-stone-400">{row.label}</dt>
-                      <dd className="mt-1 text-2xl font-semibold tracking-tight">{row.value}</dd>
+                      <dt className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">{row.label}</dt>
+                      <dd className={`text-3xl font-bold tracking-tight text-white`}>{row.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -128,14 +141,15 @@ export default function WhyChooseUs({ site }: Props) {
             </RevealOnScroll>
 
             <RevealOnScroll>
-              <div className="rounded-xl border border-stone-200 bg-[var(--surface)] p-6 shadow-sm">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
+              <div className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-stone-100">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-[#1c1c1c] mb-6 flex items-center gap-3">
+                  <span className="w-8 h-[1px] bg-[#F5A623]" />
                   {w?.checklist_title || "Included experience"}
                 </h3>
-                <ul className="mt-4 space-y-3">
+                <ul className="space-y-4">
                   {checklist.map((item, i) => (
-                    <li key={`${i}-${item}`} className="flex items-start gap-3 text-sm text-stone-700">
-                      <FaCheckCircle className="mt-0.5 shrink-0 text-teal-800" aria-hidden />
+                    <li key={`${i}-${item}`} className="flex items-start gap-3 text-[15px] font-medium text-stone-700">
+                      <FaCheckCircle className="mt-1 shrink-0 text-[#F5A623]" aria-hidden />
                       <span>{item}</span>
                     </li>
                   ))}

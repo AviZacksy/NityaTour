@@ -63,8 +63,8 @@ const MobileMenu: React.FC = () => {
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-stone-200 px-4 py-3">
-          <span className="text-sm font-semibold text-stone-900">Menu</span>
+        <div className="flex items-center justify-between border-b border-stone-200 px-4 py-4">
+          <span className="text-lg font-bold text-stone-900">Menu</span>
           <button type="button" onClick={() => setOpen(false)} aria-label="Close menu">
             <FaTimes className="text-xl text-stone-700" />
           </button>
@@ -74,7 +74,7 @@ const MobileMenu: React.FC = () => {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="block rounded-md px-4 py-3 text-[15px] font-medium text-stone-800 transition-colors hover:bg-stone-100"
+                className="block rounded-md px-4 py-4 text-lg font-medium text-stone-800 transition-colors hover:bg-stone-100"
                 onClick={(e) => {
                   e.preventDefault();
                   setOpen(false);

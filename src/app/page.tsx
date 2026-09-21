@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState, Suspense, lazy } from "react";
+import { FaPhone, FaWhatsapp } from "react-icons/fa";
 import HeroSection from "./components/HeroSection";
 import CarImageSlider from "./components/CarImageSlider";
-import StickyContactButtons from "./components/StickyContactButtons";
 import HotelSection from "./components/HotelSection";
 import type { Company } from "@/lib/companyTypes";
 import { DEFAULT_CAR_IMAGES, resolveFleetFolders } from "@/lib/fleetConfig";
@@ -85,7 +85,7 @@ export default function Home() {
     "Prefer a quick reply? Use the WhatsApp or Call buttons on screen—we will confirm vehicle, route, and fare clearly before you travel.";
 
   return (
-    <div className="relative min-h-screen font-sans">
+    <div className="relative min-h-screen font-sans overflow-x-hidden">
       <HeroSection company={company} />
       <Suspense fallback={<SectionFallback label="Loading fleet…" />}>
         {company && (
@@ -102,17 +102,88 @@ export default function Home() {
         <WhyChooseUs site={company?.site} />
       </Suspense>
 
-      <footer
-        id="contact"
-        className="border-t border-stone-200/80 bg-[var(--surface)] py-12 text-center"
-      >
-        <div className="mx-auto max-w-2xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-wide text-stone-500">{footerKicker}</p>
-          <p className="mt-3 text-sm leading-relaxed text-stone-600">{footerBody}</p>
+      <footer id="contact" className="bg-[#111111] text-stone-300 py-20 lg:py-24 border-t border-stone-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+            
+            {/* Brand Column */}
+            <div className="lg:col-span-1">
+              <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">Nitya Tour <span className="text-[#F5A623]">&</span> Travels</h3>
+              <p className="text-sm leading-relaxed text-stone-400 mb-6">
+                Your trusted travel partner in Indore. We provide premium cab services, outstation trips, and comfortable hotel stays with a focus on safety and transparency.
+              </p>
+              <div className="flex gap-4">
+                <a href={`https://wa.me/${company?.contact?.whatsapp || "8435067145"}`} className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 hover:bg-[#F5A623] hover:text-white transition-all">
+                  <FaWhatsapp size={18} />
+                </a>
+                <a href={`tel:${company?.contact?.phone || "8435067145"}`} className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 hover:bg-[#F5A623] hover:text-white transition-all">
+                  <FaPhone size={16} />
+                </a>
+                <a href={`mailto:${company?.contact?.email || "mynityatravels@gmail.com"}`} className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 hover:bg-[#F5A623] hover:text-white transition-all">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-6">Quick Links</h4>
+              <ul className="space-y-4 text-sm font-medium">
+                <li><a href="#" className="hover:text-[#F5A623] transition-colors">Home</a></li>
+                <li><a href="#our-cars" className="hover:text-[#F5A623] transition-colors">Our Fleet</a></li>
+                <li><a href="#hotel-nitya" className="hover:text-[#F5A623] transition-colors">Hotel & Stay</a></li>
+                <li><a href="#why-choose-us" className="hover:text-[#F5A623] transition-colors">Why Choose Us</a></li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-6">Our Services</h4>
+              <ul className="space-y-4 text-sm font-medium text-stone-400">
+                <li>Local City Rides</li>
+                <li>Outstation Trips</li>
+                <li>Airport Transfers</li>
+                <li>Corporate Travel</li>
+                <li>Hotel Booking</li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-6">Contact Us</h4>
+              <ul className="space-y-4 text-sm">
+                <li className="flex items-start gap-3">
+                  <FaPhone className="text-[#F5A623] mt-1 shrink-0" size={14} />
+                  <div>
+                    <span className="block text-white font-medium">{company?.contact?.phone || "8435067145"}</span>
+                    {company?.contact?.phone_alt && <span className="block mt-1 text-stone-400">{company.contact.phone_alt}</span>}
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaWhatsapp className="text-[#F5A623] mt-1 shrink-0" size={14} />
+                  <span className="text-stone-300">{company?.contact?.whatsapp || "8435067145"}</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="text-[#F5A623] mt-1 shrink-0" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span className="text-stone-300 leading-relaxed">
+                    {company?.location || "Indore, Madhya Pradesh"}
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          
+          <div className="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs font-medium tracking-wide text-stone-500">
+              &copy; {new Date().getFullYear()} Nitya Tour & Travels. All rights reserved.
+            </p>
+            <p className="text-xs font-medium tracking-wide text-stone-500 flex items-center gap-1.5">
+              Designed with <span className="text-[#F5A623]">♥</span> for premium travel.
+            </p>
+          </div>
         </div>
       </footer>
-
-      {company && <StickyContactButtons company={company} />}
     </div>
   );
 }
