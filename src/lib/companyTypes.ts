@@ -77,6 +77,7 @@ export type Company = {
     whatsapp: string;
     phone_alt?: string;
     whatsapp_alt?: string;
+    phone_third?: string;
     email: string;
   };
   social_media?: {

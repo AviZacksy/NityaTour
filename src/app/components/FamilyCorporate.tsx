@@ -1,6 +1,6 @@
 "use client";
 import RevealOnScroll from "./RevealOnScroll";
-import { FaUsers, FaBriefcase } from "react-icons/fa";
+
 
 export default function FamilyCorporate() {
   const handleContactClick = () => {

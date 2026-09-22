@@ -70,7 +70,7 @@ export default function CarsGrid({ cars, company, fleetSection }: CarsGridProps)
           {cars.map((car: Car, idx: number) => {
             const folderLower = car.folder.toLowerCase();
             let rateDisplay = "";
-            let unitDisplay = "per km";
+            const unitDisplay = "per km";
 
             if (folderLower.includes("ertiga")) rateDisplay = "₹14";
             else if (folderLower.includes("crysta")) rateDisplay = "₹19";

@@ -37,7 +37,7 @@ export default function Footer() {
             </div>
             
             <p className="text-[14px] leading-[26px]">
-              Nitya Tours & Travels is Indore's premier travel agency. We offer a comprehensive range of services including well-maintained car rentals, taxi services, hotel bookings, and customized tour packages for family holidays, corporate travel, and spiritual yatras across India. Your comfort and safety are our top priorities.
+              Nitya Tours & Travels is Indore&apos;s premier travel agency. We offer a comprehensive range of services including well-maintained car rentals, taxi services, hotel bookings, and customized tour packages for family holidays, corporate travel, and spiritual yatras across India. Your comfort and safety are our top priorities.
             </p>
           </div>
 
