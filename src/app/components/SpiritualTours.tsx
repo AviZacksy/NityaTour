@@ -2,14 +2,14 @@
 import RevealOnScroll from "./RevealOnScroll";
 
 const spiritualPackages = [
-  { dest: "Char Dham Yatra", duration: "11N/12D", img: "/service/chardham.jpg" },
-  { dest: "Kedarnath", duration: "3N/4D", img: "/service/sprituial.jpg" },
-  { dest: "Badrinath", duration: "3N/4D", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop" },
-  { dest: "Varanasi", duration: "2N/3D", img: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=800&auto=format&fit=crop" },
-  { dest: "Ayodhya", duration: "2N/3D", img: "/service/tourpackage.jpg" },
-  { dest: "Mathura-Vrindavan", duration: "2N/3D", img: "/service/family-trip.jpg" },
-  { dest: "Ujjain", duration: "1N/2D", img: "/service/outing.jpg" },
-  { dest: "Jyotirlinga Tours", duration: "Various", img: "/service/chardham.jpg" },
+  { dest: "Char Dham Yatra", duration: "11N/12D", img: "/Divine/chardham.jpg" },
+  { dest: "Kedarnath", duration: "3N/4D", img: "/Divine/kedarnath.jpg" },
+  { dest: "Badrinath", duration: "3N/4D", img: "/Divine/badrinath.jpg" },
+  { dest: "Varanasi", duration: "2N/3D", img: "/Divine/vanarasi.jpg" },
+  { dest: "Ayodhya", duration: "2N/3D", img: "/Divine/Ayodhya.jpg" },
+  { dest: "Mathura-Vrindavan", duration: "2N/3D", img: "/Divine/vrindavan.jpg" },
+  { dest: "Ujjain", duration: "1N/2D", img: "/Divine/ujjain.jpg" },
+  { dest: "Jyotirlinga Tours", duration: "Various", img: "/Divine/jyotlingtour.jpg" },
 ];
 
 export default function SpiritualTours() {
@@ -23,10 +23,7 @@ export default function SpiritualTours() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Spiritual & Pilgrimage Tours</h2>
               <p className="text-gray-600">Experience peace and devotion with our specially curated Yatra packages. From the sacred Char Dham to the spiritual ghats of Varanasi.</p>
             </div>
-            <button onClick={() => {
-                const contactBtn = document.querySelector('a[href="#contact"]') as HTMLAnchorElement;
-                if(contactBtn) contactBtn.click();
-            }} className="shrink-0 bg-white border-2 border-[#d32f2f] text-[#d32f2f] hover:bg-[#d32f2f] hover:text-white font-bold py-2.5 px-6 rounded-full transition-colors">
+            <button onClick={() => window.dispatchEvent(new Event("openContact"))} className="shrink-0 bg-white border-2 border-[#d32f2f] text-[#d32f2f] hover:bg-[#d32f2f] hover:text-white font-bold py-2.5 px-6 rounded-full transition-colors">
               Book Now
             </button>
           </div>

@@ -12,6 +12,8 @@ interface Company {
     whatsapp: string;
     phone_alt?: string;
     whatsapp_alt?: string;
+    phone_third?: string;
+    whatsapp_third?: string;
     email: string;
   };
   social_media?: {
@@ -76,14 +78,26 @@ export default function AboutSection({ company }: AboutSectionProps) {
                     {formatPhoneDisplay(company?.contact?.phone || "8435067145")}
                   </span>
                 </a>
-                {(company?.contact?.phone_alt || "8269058399") && (
+                {(company?.contact?.phone_alt || "7692972297") && (
                   <a 
-                    href={`tel:${company?.contact?.phone_alt || "8269058399"}`}
+                    href={`tel:${company?.contact?.phone_alt || "7692972297"}`}
                     className="flex items-center gap-3 text-indigo-900 hover:text-white transition-colors"
                   >
                     <FaPhone className="text-xl opacity-0" aria-hidden />
                     <span className="font-semibold">
-                      {formatPhoneDisplay(company?.contact?.phone_alt || "8269058399")}
+                      {formatPhoneDisplay(company?.contact?.phone_alt || "7692972297")}
+                    </span>
+                  </a>
+                )}
+                
+                {(company?.contact?.phone_third || "8269058399") && (
+                  <a 
+                    href={`tel:${company?.contact?.phone_third || "8269058399"}`}
+                    className="flex items-center gap-3 text-indigo-900 hover:text-white transition-colors"
+                  >
+                    <FaPhone className="text-xl opacity-0" aria-hidden />
+                    <span className="font-semibold">
+                      {formatPhoneDisplay(company?.contact?.phone_third || "8269058399")}
                     </span>
                   </a>
                 )}

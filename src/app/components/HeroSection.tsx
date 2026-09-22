@@ -1,30 +1,50 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RevealOnScroll from "./RevealOnScroll";
 import { FaGlobe, FaRocket } from "react-icons/fa";
+
+const backgroundImages = [
+  "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=2000&auto=format&fit=crop", // Kerala Backwaters
+  "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2000&auto=format&fit=crop", // Road Trip / Car Travel
+  "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2000&auto=format&fit=crop", // Taj Mahal / India Heritage
+  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop", // Mountains / Adventure
+  "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=2000&auto=format&fit=crop", // Spiritual / Temples
+];
 
 export default function HeroSection() {
 
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [serviceType, setServiceType] = useState("");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    const contactBtn = document.querySelector('a[href="#contact"]') as HTMLAnchorElement;
-    if (contactBtn) contactBtn.click();
+    window.dispatchEvent(new Event("openContact"));
   };
 
   return (
     <section className="relative w-full h-[100vh] min-h-[600px] max-h-[900px] flex flex-col justify-center bg-stone-900">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=2000&auto=format&fit=crop"
-          alt="Majestic Travel Background"
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/30" />
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-black">
+        {backgroundImages.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`Travel Background ${index + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Main Hero Text (Centered) */}
@@ -37,6 +57,10 @@ export default function HeroSection() {
             <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] leading-tight font-medium tracking-tight drop-shadow-lg">
               Incredible Journey
             </h1>
+            <p className="mt-6 text-base md:text-lg lg:text-xl text-white/95 font-medium drop-shadow-md max-w-3xl mx-auto leading-relaxed">
+              Nitya Tours & Travels provides complete travel solutions: <br className="hidden md:block" />
+              <span className="font-bold text-[#f5a623]">Car Rentals</span> • <span className="font-bold text-[#f5a623]">Tour Packages</span> • <span className="font-bold text-[#f5a623]">Hotel Bookings</span> • <span className="font-bold text-[#f5a623]">Spiritual Yatras</span>
+            </p>
           </div>
         </RevealOnScroll>
       </div>

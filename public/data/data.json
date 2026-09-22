@@ -7,7 +7,7 @@
     "description": "Travel agency in Indore: car rental, taxi, tour packages, and hotel support—serving customers across India with well‑maintained vehicles.",
     "primary_cta": { "label": "View fleet", "href": "#our-cars" },
     "secondary_cta": { "label": "WhatsApp us", "href": "" },
-    "logo_src": "/logo/logo1.png",
+    "logo_src": "/logo/logo2.png",
     "logo_alt": "Nitya Tour & Travels logo",
     "card_note": "Serving Indore and pan‑India travel with care and consistency."
   },
@@ -15,9 +15,11 @@
   "service_area": "All India",
   "contact": {
     "phone": "8435067145",
-    "phone_alt": "8269058399",
+    "phone_alt": "7692972297",
+    "phone_third": "8269058399",
     "whatsapp": "8435067145",
-    "whatsapp_alt": "8269058399",
+    "whatsapp_alt": "7692972297",
+    "whatsapp_third": "8269058399",
     "email": "mynityatravels@gmail.com"
   },
   "social_media": {

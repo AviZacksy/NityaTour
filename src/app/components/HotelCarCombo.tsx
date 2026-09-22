@@ -4,8 +4,7 @@ import { FaHotel, FaCar, FaMapMarkedAlt, FaPlus } from "react-icons/fa";
 
 export default function HotelCarCombo() {
   const handleContactClick = () => {
-    const contactBtn = document.querySelector('a[href="#contact"]') as HTMLAnchorElement;
-    if (contactBtn) contactBtn.click();
+    window.dispatchEvent(new Event("openContact"));
   };
 
   return (

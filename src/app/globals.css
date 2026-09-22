@@ -14,14 +14,14 @@
 @theme inline {
   --color-page-bg: var(--page-bg);
   --color-surface: var(--surface);
-  --font-sans: var(--font-montserrat);
+  --font-sans: var(--font-nunito);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--page-bg);
   color: var(--text);
-  font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {

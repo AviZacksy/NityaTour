@@ -9,6 +9,8 @@ interface ContactModalProps {
   whatsapp?: string;
   phoneAlt?: string;
   whatsappAlt?: string;
+  phoneThird?: string;
+  whatsappThird?: string;
 }
 
 export default function ContactModal({
@@ -16,8 +18,10 @@ export default function ContactModal({
   onClose,
   phone = "8435067145",
   whatsapp = "8435067145",
-  phoneAlt = "8269058399",
-  whatsappAlt = "8269058399",
+  phoneAlt = "7692972297",
+  whatsappAlt = "7692972297",
+  phoneThird = "8269058399",
+  whatsappThird = "8269058399",
 }: ContactModalProps) {
   if (!open) return null;
   return (
@@ -37,7 +41,7 @@ export default function ContactModal({
 
         <div className="flex flex-col items-center text-center">
           <div className="mb-6 pb-4 border-b border-stone-100 w-full flex justify-center">
-            <Image src="/logo/logo1.png" alt="Nitya Tour & Travels" width={160} height={60} className="object-contain" />
+            <Image src="/logo/logo2.png" alt="Nitya Tour & Travels" width={160} height={60} className="object-contain" />
           </div>
           
           <h3 className="text-xl font-bold text-stone-900 mb-6 uppercase tracking-wider">Get in Touch</h3>
@@ -63,6 +67,17 @@ export default function ContactModal({
               </button>
             )}
 
+            {!!phoneThird && (
+              <button
+                type="button"
+                className="w-full flex items-center justify-center gap-3 rounded-none bg-stone-100 border border-stone-200 py-3.5 px-4 text-[15px] font-bold text-stone-800 transition-all hover:bg-stone-200"
+                onClick={() => window.open(`tel:${phoneThird}`, "_self")}
+              >
+                <FaPhoneAlt size={14} className="text-stone-500" />
+                Call {phoneThird}
+              </button>
+            )}
+
             <button
               type="button"
               className="w-full flex items-center justify-center gap-3 rounded-none bg-[#25D366] py-3.5 px-4 text-[15px] font-bold text-white transition-all hover:bg-[#1ebe57] hover:shadow-md mt-4"
@@ -80,6 +95,17 @@ export default function ContactModal({
               >
                 <FaWhatsapp size={16} className="text-[#25D366]" />
                 WhatsApp {whatsappAlt}
+              </button>
+            )}
+
+            {!!whatsappThird && (
+              <button
+                type="button"
+                className="w-full flex items-center justify-center gap-3 rounded-none bg-stone-100 border border-stone-200 py-3.5 px-4 text-[15px] font-bold text-stone-800 transition-all hover:bg-stone-200"
+                onClick={() => window.open(`https://wa.me/${whatsappThird}`, "_blank")}
+              >
+                <FaWhatsapp size={16} className="text-[#25D366]" />
+                WhatsApp {whatsappThird}
               </button>
             )}
           </div>

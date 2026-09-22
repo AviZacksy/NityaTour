@@ -17,9 +17,11 @@ const navLinks = [
 ];
 
 const PHONE = "8435067145";
-const PHONE_ALT = "8269058399";
+const PHONE_ALT = "7692972297";
 const WHATSAPP = "8435067145";
-const WHATSAPP_ALT = "8269058399";
+const WHATSAPP_ALT = "7692972297";
+const PHONE_THIRD = "8269058399";
+const WHATSAPP_THIRD = "8269058399";
 
 const MobileMenu: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -43,11 +45,19 @@ const MobileMenu: React.FC = () => {
         >
           {open ? <FaTimes className="text-3xl" /> : <FaBars className="text-3xl" />}
         </button>
-        <div className="flex flex-1 items-center justify-center -ml-6">
+        <div className="flex flex-1 items-center justify-center">
           <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
-            <Image src="/logo/logo1.png" alt={brand} width={130} height={50} className="object-contain max-h-[50px] w-auto" priority />
+            <Image src="/logo/logo2.png" alt={brand} width={120} height={46} className="object-contain max-h-[46px] w-auto" priority />
           </Link>
         </div>
+        
+        {/* Right Side: CTA */}
+        <button 
+          onClick={() => setShowContact(true)}
+          className="bg-[#d32f2f] text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap shadow-md shrink-0"
+        >
+          Book Now
+        </button>
       </div>
 
       {/* Dropdown Menu */}
@@ -104,7 +114,7 @@ const MobileMenu: React.FC = () => {
         />
       )}
 
-      {showContact && <ContactModal open={showContact} onClose={() => setShowContact(false)} phone={PHONE} whatsapp={WHATSAPP} phoneAlt={PHONE_ALT} whatsappAlt={WHATSAPP_ALT} />}
+      {showContact && <ContactModal open={showContact} onClose={() => setShowContact(false)} phone={PHONE} whatsapp={WHATSAPP} phoneAlt={PHONE_ALT} whatsappAlt={WHATSAPP_ALT} phoneThird={PHONE_THIRD} whatsappThird={WHATSAPP_THIRD} />}
 
       {/* Floating Action Buttons (Mobile Only) */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-4 md:hidden">

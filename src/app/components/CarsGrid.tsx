@@ -64,24 +64,28 @@ export default function CarsGrid({ cars, company, fleetSection }: CarsGridProps)
             </p>
           </div>
         </RevealOnScroll>
-        
+
         {/* Cars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {cars.map((car: Car, idx: number) => {
-            // Try to extract a brand from the folder name (e.g. "Ertiga model 2024" -> "Ertiga", Innova -> "Toyota")
             const folderLower = car.folder.toLowerCase();
-            let brand = "Brand";
-            if (folderLower.includes("ertiga")) brand = "Maruti";
-            else if (folderLower.includes("innova") || folderLower.includes("hycross")) brand = "Toyota";
-            else if (folderLower.includes("scorpio") || folderLower.includes("thar")) brand = "Mahindra";
-            else if (folderLower.includes("tavera")) brand = "Chevrolet";
-            else if (folderLower.includes("aura")) brand = "Hyundai";
-            else if (folderLower.includes("tempo")) brand = "Force";
-            else brand = car.folder.split(" ")[0];
+            let rateDisplay = "";
+            let unitDisplay = "per km";
 
+            if (folderLower.includes("ertiga")) rateDisplay = "₹14";
+            else if (folderLower.includes("crysta")) rateDisplay = "₹19";
+            else if (folderLower.includes("innova") || folderLower.includes("hycross")) rateDisplay = "₹16";
+            else if (folderLower.includes("tavera")) rateDisplay = "₹16";
+            else if (folderLower.includes("tempo")) {
+              rateDisplay = "₹26 non-ac / ₹28 ac";
+            }
+            else if (folderLower.includes("aura") || folderLower.includes("sedan")) rateDisplay = "₹12";
+            else {
+              rateDisplay = `₹${car.per_day_charge || "12"}`;
+            }
             return (
               <RevealOnScroll key={idx}>
-                <a 
+                <a
                   href={`https://wa.me/${company?.contact?.whatsapp || "8435067145"}?text=Hi, I want to book ${car.model}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -90,15 +94,9 @@ export default function CarsGrid({ cars, company, fleetSection }: CarsGridProps)
                   <div className="flex justify-between items-start mb-6">
                     {/* Left Info */}
                     <div className="flex flex-col z-10 w-1/2">
-                      <h3 className="text-[16px] font-medium text-gray-600 mb-1 leading-tight">
+                      <h3 className="text-[18px] font-bold text-gray-800 mb-1 leading-tight">
                         {car.model}
                       </h3>
-                      <span className="text-[14px] text-gray-400 mb-2">
-                        {car.year || "2024-25"}
-                      </span>
-                      <span className="text-[18px] font-bold text-[#0d2a45]">
-                        {brand}
-                      </span>
                     </div>
 
                     {/* Right Image */}
@@ -106,8 +104,8 @@ export default function CarsGrid({ cars, company, fleetSection }: CarsGridProps)
                       {/* We use the CarImageSlider but restrict it so it acts like a static image if possible, 
                           or we just display the first image to match the clean design */}
                       {car.images && car.images.length > 0 ? (
-                        <img 
-                          src={`/${car.folder}/${car.images[0]}`} 
+                        <img
+                          src={`/${car.folder}/${car.images[0]}`}
                           alt={car.model}
                           className="w-full h-full object-contain object-right"
                         />
@@ -120,11 +118,11 @@ export default function CarsGrid({ cars, company, fleetSection }: CarsGridProps)
                   {/* Features Row */}
                   <div className="flex items-center gap-4 text-[13px] text-gray-500 mb-6">
                     <span className="flex items-center gap-1.5">
-                      <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                      <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /></svg>
                       {car.fuel || "Diesel"}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                      <svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                       Manual
                     </span>
                     <span className="flex items-center gap-1.5">
@@ -135,12 +133,12 @@ export default function CarsGrid({ cars, company, fleetSection }: CarsGridProps)
 
                   {/* Price & Action */}
                   <div className="flex items-center justify-between mt-auto pt-2">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[20px] font-bold text-[#0d2a45]">
-                        ₹{car.per_day_charge || "2,500"}
+                    <div className="flex items-baseline gap-1.5 flex-wrap max-w-[60%]">
+                      <span className="text-[18px] font-bold text-[#0d2a45]">
+                        {rateDisplay}
                       </span>
-                      <span className="text-[14px] text-gray-500">
-                        per day
+                      <span className="text-[13px] text-gray-500 whitespace-nowrap">
+                        {unitDisplay}
                       </span>
                     </div>
                     <span className="text-[12px] font-bold text-white bg-[#f5a623] px-4 py-2 hover:bg-[#e0941d] transition-colors shadow-sm">

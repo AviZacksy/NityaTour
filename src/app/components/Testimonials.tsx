@@ -4,31 +4,52 @@ import { FaStar, FaQuoteLeft } from "react-icons/fa";
 
 const testimonials = [
   {
-    name: "Rahul Verma",
-    role: "Family Trip to Kashmir",
-    text: "Nitya Tour planned our Kashmir trip perfectly. The hotels were excellent, and the driver was very polite and professional. Highly recommended!",
+    name: "Yashoda devi",
+    role: "3 weeks ago",
+    text: "When I first contacted Ms Jyothi Yadav ma’am, her response in the first instance is so cordial and we were so happy and decided to go to trip with Nitya Travels.",
     rating: 5,
-    img: "https://i.pravatar.cc/150?img=11"
+    color: "bg-purple-600"
   },
   {
-    name: "Priya Sharma",
-    role: "Corporate Outing",
-    text: "We booked a tempo traveller for our office outing. The vehicle was clean, arrived on time, and the entire process was smooth. Great service.",
+    name: "gautam raval",
+    role: "6 months ago",
+    text: "We recently hired a vehicle with a driver from Nitya Tour & Travels, Indore for a religious tour around Indore, covering Ujjain, Maheshwar, and Omkareshwar. The experience was wonderful, with smooth darshan.",
     rating: 5,
-    img: "https://i.pravatar.cc/150?img=5"
+    color: "bg-teal-600"
   },
   {
-    name: "Amit Patel",
-    role: "Char Dham Yatra",
-    text: "Our Char Dham Yatra was made incredibly easy by the team. They handled everything from accommodations to safe transport in hilly terrains.",
+    name: "Vinayak kudva",
+    role: "8 months ago",
+    text: "We had booked a cab for 9 days for an MP trip covering Indore, Ujjain, Omkareshwar, Bhopal, Sanchi and Satpura. We had a wonderful experience - good and knowledgeable driver who was helpful throughout the trip.",
     rating: 5,
-    img: "https://i.pravatar.cc/150?img=15"
+    color: "bg-orange-600"
+  },
+  {
+    name: "Dr Kavita Pawar",
+    role: "2 months ago",
+    text: "Jyothi Maam helped us coordinate a wonderful trip from indore to dhar and ujjain over 2 days. Mr Navin bhaiya was a exceptional driver, very friendly and helpful and the car provided was great quality",
+    rating: 5,
+    color: "bg-blue-600"
+  },
+  {
+    name: "Shibadityaa Pathak",
+    role: "3 months ago",
+    text: "Excellent service. The car was very comfortable. Sharwan Ji was our driver and is a good, knowledgeable person.",
+    rating: 5,
+    color: "bg-green-600"
+  },
+  {
+    name: "Divyarani Sishtla",
+    role: "9 months ago",
+    text: "Dhanraj ji and Dilip ji were our drivers from Indore to Hyderabad, they both were excellent! The entire journey was smooth, quick and felt very safe. I would definitely recommend Nitya tours and travels. Amazing service 💯",
+    rating: 5,
+    color: "bg-slate-500"
   }
 ];
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="pt-20 pb-10 bg-gray-50">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <div className="text-center mb-16">
@@ -53,8 +74,8 @@ export default function Testimonials() {
                 key={idx} 
                 className="flex-none w-[85%] sm:w-[350px] md:w-[calc(33.333%-1.33rem)] snap-center bg-white rounded-none p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow relative mt-10"
               >
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-white shadow-md overflow-hidden">
-                  <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
+                <div className={`absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-4 border-white shadow-md overflow-hidden ${t.color || 'bg-gray-200'} flex items-center justify-center text-white text-3xl font-bold`}>
+                  {t.name.charAt(0).toUpperCase()}
                 </div>
                 
                 <div className="text-center mt-10">

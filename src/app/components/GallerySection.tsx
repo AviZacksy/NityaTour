@@ -2,17 +2,17 @@
 import RevealOnScroll from "./RevealOnScroll";
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800&auto=format&fit=crop",
+  "/moments/1.jpg",
+  "/moments/2.jpg",
+  "/moments/3.jpg",
+  "/moments/4.jpg",
+  "/moments/5.jpg",
+  "/moments/6.jpg",
 ];
 
 export default function GallerySection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="pt-10 pb-10 bg-white">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <div className="text-center mb-16">

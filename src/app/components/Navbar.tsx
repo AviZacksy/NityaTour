@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import ContactModal from "./ContactModal";
 import { usePublicCompany } from "@/lib/usePublicCompany";
 import {
@@ -16,6 +16,12 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [showContact, setShowContact] = useState(false);
+
+  useEffect(() => {
+    const handleOpenContact = () => setShowContact(true);
+    window.addEventListener("openContact", handleOpenContact);
+    return () => window.removeEventListener("openContact", handleOpenContact);
+  }, []);
   const company = usePublicCompany();
   const brand = useMemo(
     () => company?.site?.navbar_brand?.trim() || company?.company_name || "Nitya Tour & Travels",
@@ -23,6 +29,10 @@ export default function Navbar() {
   );
 
   const phone = company?.contact?.phone || "+91-9968488791";
+  const phoneAlt = company?.contact?.phone_alt;
+  const phoneThird = company?.contact?.phone_third;
+  const displayPhone = [phone, phoneAlt, phoneThird].filter(Boolean).join(" / ");
+  
   const email = company?.contact?.email || "info@nityatour.com";
   const whatsapp = company?.contact?.whatsapp || "+91-9958221107";
 
@@ -71,7 +81,7 @@ export default function Navbar() {
               </a>
               <div className="flex items-center gap-2">
                 <FaPhoneAlt className="text-sm" />
-                <span>{phone}</span>
+                <span>{displayPhone}</span>
               </div>
             </div>
 
@@ -94,7 +104,7 @@ export default function Navbar() {
           <div className="mx-auto flex h-[80px] max-w-[1400px] items-center justify-between px-4 lg:px-8">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80 shrink-0">
-              <Image src="/logo/logo1.png" alt={brand} width={180} height={70} className="object-contain max-h-[60px] w-auto" priority />
+              <Image src="/logo/logo2.png" alt={brand} width={180} height={70} className="object-contain max-h-[60px] w-auto" priority />
             </Link>
 
             {/* Navigation Menu */}
